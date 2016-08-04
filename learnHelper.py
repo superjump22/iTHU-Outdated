@@ -12,7 +12,7 @@ url = 'https://learn.tsinghua.edu.cn/MultiLanguage/lesson/teacher/loginteacher.j
 url1 = 'http://info.tsinghua.edu.cn/Login'
 user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
 headers = {'User-Agent' : user_agent}
-form_data = {'userid':'2012345678', 'userpass':'**********', 'submit1':'登录', 'roleType':'3'}
+form_data = {'userid':'2014011778', 'userpass':'zxb3724650GC', 'submit1':'登录', 'roleType':'3'}
 form_data1 = {"redirect":"NO",
             "userName":"2012345678", "password":"**********"}
 urlligin = 'http://learn.tsinghua.edu.cn/study/login.action'

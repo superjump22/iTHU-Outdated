@@ -150,6 +150,7 @@ class CourseTableViewController: UITableViewController {
             cell.pushIcon.hidden = true
             cell.activity.startAnimating()
             test(courseLists[selectIndex.section].list[selectIndex.row].id, indexPath: selectIndex)
+            selectIndex = nil
         }
     }
     
@@ -175,8 +176,6 @@ class CourseTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
     {
-        
-
         
         guard case let cell as CourseCell = cell else
         {
@@ -651,6 +650,85 @@ class CourseDetailViewController: FormViewController {
 //        return 100.0
 //    }
     
+    func loadINFO() {
+        
+        let section = form.sectionByTag("COURSEINFO")!
+        let section1 = form.sectionByTag("TEACHERINFO")!
+        
+        Alamofire.request(.GET, ("http://learn.tsinghua.edu.cn/MultiLanguage/lesson/student/course_info.jsp?course_id=" + self.course.id).stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!).validate().responseString
+            {
+                response in
+                do {
+                    // if encoding is omitted, it defaults to NSUTF8StringEncoding
+                    let doc = try HTMLDocument(string: String(response), encoding: NSUTF8StringEncoding).xpath("//*[@id=\"table_box\"]/tr")
+                    
+                    section
+                        <<< LabelRow() {
+                            $0.title = "课程编号"
+                            $0.value = doc[0]?.children[1].stringValue
+                        }
+                        <<< LabelRow() {
+                            $0.title = "课程序号"
+                            $0.value = doc[0]?.children[3].stringValue
+                        }
+                        <<< LabelRow() {
+                            $0.title = "课程名称"
+                            $0.value = doc[1]?.children[1].stringValue
+                        }
+                        <<< LabelRow() {
+                            $0.title = "学分"
+                            $0.value = doc[2]?.children[1].stringValue
+                        }
+                        <<< LabelRow() {
+                            $0.title = "学时"
+                            $0.value = doc[2]?.children[3].stringValue
+                        }
+                        
+                    section1
+                        
+                        <<< LabelRow() {
+                            $0.title = "姓名"
+                            $0.value = doc[4]?.children[1].stringValue.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
+                        }
+                        <<< LabelRow() {
+                            $0.title = "电子邮件"
+                            $0.value = doc[4]?.children[3].stringValue.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
+                        }
+                        <<< LabelRow() {
+                            $0.title = "电话"
+                            $0.value = doc[5]?.children[1].stringValue.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
+                        }
+                        <<< LabelRow() {
+                            $0.title = "简介"
+                    }
+                    
+                    var result = ""
+                    var str: NSAttributedString!
+                    var str1: NSMutableAttributedString!
+                    
+                    result = doc[6]!.children[1].rawXML
+                    
+                    str = try NSAttributedString(data: result.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+                    str1 = NSMutableAttributedString(attributedString: str)
+                    str1.addAttributes([NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 16)!], range: NSMakeRange(0, str.length))
+                    
+                    section1
+                        <<< TextAreaRow(){
+                            $0.textAreaHeight = .Dynamic(initialTextViewHeight: 0)
+                            }.cellUpdate({ (cell, row) -> () in
+                                cell.textView.attributedText = str1
+                                cell.textView.editable = false
+                                cell.textView.selectable = false
+                            })
+                    
+                } catch _ {
+                    
+                }
+                
+        }
+    
+    }
+
     func loadBBS() {
 
         let section = form.sectionByTag("BBS")!
@@ -807,6 +885,7 @@ class CourseDetailViewController: FormViewController {
     }
 
     func load() {
+        loadINFO()
         loadBBS()
         loadHWK()
         loadFILE()
@@ -852,6 +931,16 @@ class CourseDetailViewController: FormViewController {
                 $0.value = 1
                 $0.hidden = true
                 }
+            +++ Section("课程信息") {
+                $0.tag = "COURSEINFO"
+                $0.footer = nil
+                $0.hidden = "$segments != 0"
+                }
+            +++ Section("教师信息") {
+                $0.tag = "TEACHERINFO"
+                $0.footer = nil
+                $0.hidden = "$segments != 0"
+            }
             +++ Section(){
                 $0.tag = "BBS"
                 $0.header = nil
