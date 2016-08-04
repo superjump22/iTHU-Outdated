@@ -1,0 +1,37 @@
+PODS:
+  - Alamofire (3.4.1)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - EasyTipView (0.2.2)
+  - Eureka (1.6.0)
+  - Fuzi (0.3.1)
+  - Realm (1.0.1):
+    - Realm/Headers (= 1.0.1)
+  - Realm/Headers (1.0.1)
+  - RealmSwift (1.0.1):
+    - Realm (= 1.0.1)
+  - TextFieldEffects (1.2.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.4)
+  - ChameleonFramework/Swift
+  - EasyTipView
+  - Eureka
+  - Fuzi
+  - RealmSwift
+  - TextFieldEffects
+
+SPEC CHECKSUMS:
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  EasyTipView: 812278deb90bdbe5189b7460988f8df4d1cb4266
+  Eureka: ef5b9ac93aedeecfe50d98b1ac7678bf09a1fc62
+  Fuzi: 25118b725a1637f1676f63ae1acbba1f30a5dd6c
+  Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
+  RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
+  TextFieldEffects: bc4fd3bd557321bd61a0762f3f50965477a36f62
+
+PODFILE CHECKSUM: 369403e75ac5a6b20f8e1bfcd3d1eabf9d7cb169
+
+COCOAPODS: 1.0.1
