@@ -1,0 +1,740 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6EE2B8ADBA241DCE8B32BFA5 /* Pods_iTHU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA720B2A08915248134DD3A /* Pods_iTHU.framework */; };
+		A322C5FD1D506E040096EA50 /* BBSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A322C5FC1D506E040096EA50 /* BBSCell.xib */; };
+		A322C5FF1D524CBB0096EA50 /* HWKCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A322C5FE1D524CBB0096EA50 /* HWKCell.xib */; };
+		A34FFD981D530A1F00F04E37 /* FILECell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34FFD971D530A1F00F04E37 /* FILECell.xib */; };
+		A36C68D31D4DFC0D002F0E56 /* CourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A36C68D21D4DFC0D002F0E56 /* CourseCell.xib */; };
+		A38706711D4BA16F00A323C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38706701D4BA16F00A323C2 /* AppDelegate.swift */; };
+		A38706731D4BA16F00A323C2 /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38706721D4BA16F00A323C2 /* LearnViewController.swift */; };
+		A38706781D4BA16F00A323C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38706761D4BA16F00A323C2 /* Main.storyboard */; };
+		A387067A1D4BA16F00A323C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A38706791D4BA16F00A323C2 /* Assets.xcassets */; };
+		A38706881D4BA16F00A323C2 /* iTHUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38706871D4BA16F00A323C2 /* iTHUTests.swift */; };
+		A38706931D4BA16F00A323C2 /* iTHUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38706921D4BA16F00A323C2 /* iTHUUITests.swift */; };
+		A3C44C241D4F0E210035FD17 /* a3.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C44C231D4F0E210035FD17 /* a3.png */; };
+		A3C44C2A1D4F12470035FD17 /* Circled Chevron Right-36.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C44C291D4F12470035FD17 /* Circled Chevron Right-36.png */; };
+		A3C44C2C1D4F81840035FD17 /* a3 in Resources */ = {isa = PBXBuildFile; fileRef = A3C44C2B1D4F81840035FD17 /* a3 */; };
+		A3CE65821D4BAC970083D692 /* Design.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3CE65801D4BAC970083D692 /* Design.storyboard */; };
+		A3CE65841D4BB7530083D692 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE65831D4BB7530083D692 /* RootViewController.swift */; };
+		A3CE65941D4BC2030083D692 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE65911D4BC2030083D692 /* InterfaceController.swift */; };
+		A3CE65951D4BC2030083D692 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE65921D4BC2030083D692 /* SwipeViewController.swift */; };
+		A3DB509C1D4C84E40005C243 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DB509B1D4C84E40005C243 /* Course.swift */; };
+		A3DB509E1D4C855C0005C243 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DB509D1D4C855C0005C243 /* User.swift */; };
+		A3DB50A31D4C9BEC0005C243 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DB50A21D4C9BEC0005C243 /* LaunchViewController.swift */; };
+		A3DB50A61D4C9C120005C243 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3DB50A41D4C9C120005C243 /* LaunchScreen.storyboard */; };
+		A3DB50AF1D4CDBE40005C243 /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DB50AA1D4CDBE40005C243 /* CGRectEx.swift */; };
+		A3DB50B01D4CDBE40005C243 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DB50AB1D4CDBE40005C243 /* FadeTransition.swift */; };
+		A3DB50B11D4CDBE40005C243 /* NSTimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DB50AC1D4CDBE40005C243 /* NSTimerEx.swift */; };
+		A3DB50B21D4CDBE40005C243 /* SpinerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DB50AD1D4CDBE40005C243 /* SpinerLayer.swift */; };
+		A3DB50B31D4CDBE40005C243 /* TransitionSubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DB50AE1D4CDBE40005C243 /* TransitionSubmitButton.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A38706841D4BA16F00A323C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A38706651D4BA16F00A323C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A387066C1D4BA16F00A323C2;
+			remoteInfo = iTHU;
+		};
+		A387068F1D4BA16F00A323C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A38706651D4BA16F00A323C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A387066C1D4BA16F00A323C2;
+			remoteInfo = iTHU;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09079C2D1289DDC9992BF9CD /* Pods-iTHU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTHU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTHU/Pods-iTHU.debug.xcconfig"; sourceTree = "<group>"; };
+		8DF72220059FA759A564C314 /* Pods-iTHU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTHU.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTHU/Pods-iTHU.release.xcconfig"; sourceTree = "<group>"; };
+		A322C5FC1D506E040096EA50 /* BBSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSCell.xib; sourceTree = "<group>"; };
+		A322C5FE1D524CBB0096EA50 /* HWKCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWKCell.xib; sourceTree = "<group>"; };
+		A34FFD971D530A1F00F04E37 /* FILECell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FILECell.xib; sourceTree = "<group>"; };
+		A36C68D21D4DFC0D002F0E56 /* CourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
+		A387066D1D4BA16F00A323C2 /* iTHU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTHU.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A38706701D4BA16F00A323C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A38706721D4BA16F00A323C2 /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
+		A38706771D4BA16F00A323C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A38706791D4BA16F00A323C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A387067E1D4BA16F00A323C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A38706831D4BA16F00A323C2 /* iTHUTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTHUTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A38706871D4BA16F00A323C2 /* iTHUTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTHUTests.swift; sourceTree = "<group>"; };
+		A38706891D4BA16F00A323C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A387068E1D4BA16F00A323C2 /* iTHUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTHUUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A38706921D4BA16F00A323C2 /* iTHUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTHUUITests.swift; sourceTree = "<group>"; };
+		A38706941D4BA16F00A323C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3C44C231D4F0E210035FD17 /* a3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a3.png; sourceTree = "<group>"; };
+		A3C44C291D4F12470035FD17 /* Circled Chevron Right-36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Circled Chevron Right-36.png"; sourceTree = "<group>"; };
+		A3C44C2B1D4F81840035FD17 /* a3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = a3; sourceTree = "<group>"; };
+		A3CE65811D4BAC970083D692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Design.storyboard; sourceTree = "<group>"; };
+		A3CE65831D4BB7530083D692 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		A3CE65911D4BC2030083D692 /* InterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		A3CE65921D4BC2030083D692 /* SwipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
+		A3CE65B41D4BDB9F0083D692 /* iTHU-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iTHU-Bridging-Header.h"; sourceTree = "<group>"; };
+		A3DB509B1D4C84E40005C243 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		A3DB509D1D4C855C0005C243 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A3DB50A21D4C9BEC0005C243 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		A3DB50A51D4C9C120005C243 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A3DB50AA1D4CDBE40005C243 /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
+		A3DB50AB1D4CDBE40005C243 /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
+		A3DB50AC1D4CDBE40005C243 /* NSTimerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimerEx.swift; sourceTree = "<group>"; };
+		A3DB50AD1D4CDBE40005C243 /* SpinerLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinerLayer.swift; sourceTree = "<group>"; };
+		A3DB50AE1D4CDBE40005C243 /* TransitionSubmitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionSubmitButton.swift; sourceTree = "<group>"; };
+		ECA720B2A08915248134DD3A /* Pods_iTHU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTHU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A387066A1D4BA16F00A323C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EE2B8ADBA241DCE8B32BFA5 /* Pods_iTHU.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A38706801D4BA16F00A323C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A387068B1D4BA16F00A323C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02308B2C13C05D9C52CCDAF2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09079C2D1289DDC9992BF9CD /* Pods-iTHU.debug.xcconfig */,
+				8DF72220059FA759A564C314 /* Pods-iTHU.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4B13C37FB97ABB0631725F95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECA720B2A08915248134DD3A /* Pods_iTHU.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A36C68D61D4E5A67002F0E56 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A3C44C291D4F12470035FD17 /* Circled Chevron Right-36.png */,
+				A3C44C231D4F0E210035FD17 /* a3.png */,
+				A3C44C2B1D4F81840035FD17 /* a3 */,
+			);
+			name = Resource;
+			path = iTHU/Resource;
+			sourceTree = "<group>";
+		};
+		A38706641D4BA16F00A323C2 = {
+			isa = PBXGroup;
+			children = (
+				A387066F1D4BA16F00A323C2 /* iTHU */,
+				A36C68D61D4E5A67002F0E56 /* Resource */,
+				A38706861D4BA16F00A323C2 /* iTHUTests */,
+				A38706911D4BA16F00A323C2 /* iTHUUITests */,
+				A387066E1D4BA16F00A323C2 /* Products */,
+				02308B2C13C05D9C52CCDAF2 /* Pods */,
+				4B13C37FB97ABB0631725F95 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A387066E1D4BA16F00A323C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A387066D1D4BA16F00A323C2 /* iTHU.app */,
+				A38706831D4BA16F00A323C2 /* iTHUTests.xctest */,
+				A387068E1D4BA16F00A323C2 /* iTHUUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A387066F1D4BA16F00A323C2 /* iTHU */ = {
+			isa = PBXGroup;
+			children = (
+				A38706701D4BA16F00A323C2 /* AppDelegate.swift */,
+				A3CE657F1D4BAAF60083D692 /* View */,
+				A3DB509A1D4C849D0005C243 /* Model */,
+				A3CE657E1D4BAACF0083D692 /* Controller */,
+				A387067E1D4BA16F00A323C2 /* Info.plist */,
+				A38706791D4BA16F00A323C2 /* Assets.xcassets */,
+				A3CE658B1D4BC2030083D692 /* Lib */,
+			);
+			path = iTHU;
+			sourceTree = "<group>";
+		};
+		A38706861D4BA16F00A323C2 /* iTHUTests */ = {
+			isa = PBXGroup;
+			children = (
+				A38706871D4BA16F00A323C2 /* iTHUTests.swift */,
+				A38706891D4BA16F00A323C2 /* Info.plist */,
+			);
+			path = iTHUTests;
+			sourceTree = "<group>";
+		};
+		A38706911D4BA16F00A323C2 /* iTHUUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A38706921D4BA16F00A323C2 /* iTHUUITests.swift */,
+				A38706941D4BA16F00A323C2 /* Info.plist */,
+			);
+			path = iTHUUITests;
+			sourceTree = "<group>";
+		};
+		A3CE657E1D4BAACF0083D692 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A3DB50A21D4C9BEC0005C243 /* LaunchViewController.swift */,
+				A3CE65831D4BB7530083D692 /* RootViewController.swift */,
+				A38706721D4BA16F00A323C2 /* LearnViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A3CE657F1D4BAAF60083D692 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A3DB50A41D4C9C120005C243 /* LaunchScreen.storyboard */,
+				A38706761D4BA16F00A323C2 /* Main.storyboard */,
+				A3CE65801D4BAC970083D692 /* Design.storyboard */,
+				A36C68D21D4DFC0D002F0E56 /* CourseCell.xib */,
+				A322C5FC1D506E040096EA50 /* BBSCell.xib */,
+				A322C5FE1D524CBB0096EA50 /* HWKCell.xib */,
+				A34FFD971D530A1F00F04E37 /* FILECell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A3CE658B1D4BC2030083D692 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				A3CE65B41D4BDB9F0083D692 /* iTHU-Bridging-Header.h */,
+				A3DB50A91D4CDBE40005C243 /* TKSubmitTransition */,
+				A3CE65901D4BC2030083D692 /* SwipeViewController */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		A3CE65901D4BC2030083D692 /* SwipeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A3CE65911D4BC2030083D692 /* InterfaceController.swift */,
+				A3CE65921D4BC2030083D692 /* SwipeViewController.swift */,
+			);
+			path = SwipeViewController;
+			sourceTree = "<group>";
+		};
+		A3DB509A1D4C849D0005C243 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3DB509B1D4C84E40005C243 /* Course.swift */,
+				A3DB509D1D4C855C0005C243 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A3DB50A91D4CDBE40005C243 /* TKSubmitTransition */ = {
+			isa = PBXGroup;
+			children = (
+				A3DB50AA1D4CDBE40005C243 /* CGRectEx.swift */,
+				A3DB50AB1D4CDBE40005C243 /* FadeTransition.swift */,
+				A3DB50AC1D4CDBE40005C243 /* NSTimerEx.swift */,
+				A3DB50AD1D4CDBE40005C243 /* SpinerLayer.swift */,
+				A3DB50AE1D4CDBE40005C243 /* TransitionSubmitButton.swift */,
+			);
+			path = TKSubmitTransition;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A387066C1D4BA16F00A323C2 /* iTHU */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A38706971D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTHU" */;
+			buildPhases = (
+				C5685D61E1E7002110B3686C /* [CP] Check Pods Manifest.lock */,
+				A38706691D4BA16F00A323C2 /* Sources */,
+				A387066A1D4BA16F00A323C2 /* Frameworks */,
+				A387066B1D4BA16F00A323C2 /* Resources */,
+				16F968154E871E60305029B3 /* [CP] Embed Pods Frameworks */,
+				EA7343D315DCD62BA898469A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iTHU;
+			productName = iTHU;
+			productReference = A387066D1D4BA16F00A323C2 /* iTHU.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A38706821D4BA16F00A323C2 /* iTHUTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A387069A1D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTHUTests" */;
+			buildPhases = (
+				A387067F1D4BA16F00A323C2 /* Sources */,
+				A38706801D4BA16F00A323C2 /* Frameworks */,
+				A38706811D4BA16F00A323C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A38706851D4BA16F00A323C2 /* PBXTargetDependency */,
+			);
+			name = iTHUTests;
+			productName = iTHUTests;
+			productReference = A38706831D4BA16F00A323C2 /* iTHUTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A387068D1D4BA16F00A323C2 /* iTHUUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A387069D1D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTHUUITests" */;
+			buildPhases = (
+				A387068A1D4BA16F00A323C2 /* Sources */,
+				A387068B1D4BA16F00A323C2 /* Frameworks */,
+				A387068C1D4BA16F00A323C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A38706901D4BA16F00A323C2 /* PBXTargetDependency */,
+			);
+			name = iTHUUITests;
+			productName = iTHUUITests;
+			productReference = A387068E1D4BA16F00A323C2 /* iTHUUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A38706651D4BA16F00A323C2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = THU_GC;
+				TargetAttributes = {
+					A387066C1D4BA16F00A323C2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 2K584VUA2X;
+					};
+					A38706821D4BA16F00A323C2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 2K584VUA2X;
+						TestTargetID = A387066C1D4BA16F00A323C2;
+					};
+					A387068D1D4BA16F00A323C2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 2K584VUA2X;
+						TestTargetID = A387066C1D4BA16F00A323C2;
+					};
+				};
+			};
+			buildConfigurationList = A38706681D4BA16F00A323C2 /* Build configuration list for PBXProject "iTHU" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A38706641D4BA16F00A323C2;
+			productRefGroup = A387066E1D4BA16F00A323C2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A387066C1D4BA16F00A323C2 /* iTHU */,
+				A38706821D4BA16F00A323C2 /* iTHUTests */,
+				A387068D1D4BA16F00A323C2 /* iTHUUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A387066B1D4BA16F00A323C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A387067A1D4BA16F00A323C2 /* Assets.xcassets in Resources */,
+				A36C68D31D4DFC0D002F0E56 /* CourseCell.xib in Resources */,
+				A322C5FF1D524CBB0096EA50 /* HWKCell.xib in Resources */,
+				A3DB50A61D4C9C120005C243 /* LaunchScreen.storyboard in Resources */,
+				A3CE65821D4BAC970083D692 /* Design.storyboard in Resources */,
+				A38706781D4BA16F00A323C2 /* Main.storyboard in Resources */,
+				A3C44C2A1D4F12470035FD17 /* Circled Chevron Right-36.png in Resources */,
+				A3C44C2C1D4F81840035FD17 /* a3 in Resources */,
+				A34FFD981D530A1F00F04E37 /* FILECell.xib in Resources */,
+				A3C44C241D4F0E210035FD17 /* a3.png in Resources */,
+				A322C5FD1D506E040096EA50 /* BBSCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A38706811D4BA16F00A323C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A387068C1D4BA16F00A323C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16F968154E871E60305029B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iTHU/Pods-iTHU-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5685D61E1E7002110B3686C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EA7343D315DCD62BA898469A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iTHU/Pods-iTHU-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A38706691D4BA16F00A323C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3DB50B31D4CDBE40005C243 /* TransitionSubmitButton.swift in Sources */,
+				A3CE65941D4BC2030083D692 /* InterfaceController.swift in Sources */,
+				A3DB509C1D4C84E40005C243 /* Course.swift in Sources */,
+				A3CE65951D4BC2030083D692 /* SwipeViewController.swift in Sources */,
+				A3DB509E1D4C855C0005C243 /* User.swift in Sources */,
+				A3DB50AF1D4CDBE40005C243 /* CGRectEx.swift in Sources */,
+				A3CE65841D4BB7530083D692 /* RootViewController.swift in Sources */,
+				A3DB50B11D4CDBE40005C243 /* NSTimerEx.swift in Sources */,
+				A3DB50B01D4CDBE40005C243 /* FadeTransition.swift in Sources */,
+				A38706711D4BA16F00A323C2 /* AppDelegate.swift in Sources */,
+				A3DB50A31D4C9BEC0005C243 /* LaunchViewController.swift in Sources */,
+				A3DB50B21D4CDBE40005C243 /* SpinerLayer.swift in Sources */,
+				A38706731D4BA16F00A323C2 /* LearnViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A387067F1D4BA16F00A323C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A38706881D4BA16F00A323C2 /* iTHUTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A387068A1D4BA16F00A323C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A38706931D4BA16F00A323C2 /* iTHUUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A38706851D4BA16F00A323C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A387066C1D4BA16F00A323C2 /* iTHU */;
+			targetProxy = A38706841D4BA16F00A323C2 /* PBXContainerItemProxy */;
+		};
+		A38706901D4BA16F00A323C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A387066C1D4BA16F00A323C2 /* iTHU */;
+			targetProxy = A387068F1D4BA16F00A323C2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A38706761D4BA16F00A323C2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A38706771D4BA16F00A323C2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A3CE65801D4BAC970083D692 /* Design.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3CE65811D4BAC970083D692 /* Base */,
+			);
+			name = Design.storyboard;
+			sourceTree = "<group>";
+		};
+		A3DB50A41D4C9C120005C243 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3DB50A51D4C9C120005C243 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A38706951D4BA16F00A323C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A38706961D4BA16F00A323C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A38706981D4BA16F00A323C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09079C2D1289DDC9992BF9CD /* Pods-iTHU.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = iTHU/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTHU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iTHU/Lib/iTHU-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A38706991D4BA16F00A323C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DF72220059FA759A564C314 /* Pods-iTHU.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = iTHU/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTHU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iTHU/Lib/iTHU-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		A387069B1D4BA16F00A323C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = iTHUTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTHUTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTHU.app/iTHU";
+			};
+			name = Debug;
+		};
+		A387069C1D4BA16F00A323C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = iTHUTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTHUTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTHU.app/iTHU";
+			};
+			name = Release;
+		};
+		A387069E1D4BA16F00A323C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = iTHUUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTHUUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = iTHU;
+			};
+			name = Debug;
+		};
+		A387069F1D4BA16F00A323C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = iTHUUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTHUUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = iTHU;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A38706681D4BA16F00A323C2 /* Build configuration list for PBXProject "iTHU" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A38706951D4BA16F00A323C2 /* Debug */,
+				A38706961D4BA16F00A323C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A38706971D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTHU" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A38706981D4BA16F00A323C2 /* Debug */,
+				A38706991D4BA16F00A323C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A387069A1D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTHUTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A387069B1D4BA16F00A323C2 /* Debug */,
+				A387069C1D4BA16F00A323C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A387069D1D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTHUUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A387069E1D4BA16F00A323C2 /* Debug */,
+				A387069F1D4BA16F00A323C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A38706651D4BA16F00A323C2 /* Project object */;
+}

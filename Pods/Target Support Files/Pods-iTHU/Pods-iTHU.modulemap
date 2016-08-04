@@ -1,0 +1,6 @@
+framework module Pods_iTHU {
+  umbrella header "Pods-iTHU-umbrella.h"
+
+  export *
+  module * { export * }
+}
