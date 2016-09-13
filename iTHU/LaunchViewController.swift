@@ -63,10 +63,10 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         preferences.animating.dismissDuration = 0.618
         
         preferences.drawing.arrowPosition = .Top
-        tipView.append(EasyTipView(text: "用户名或密码错误，请重试。（若多次无法登录，可能是学校服务器的问题）", preferences: preferences))
+        tipView.append(EasyTipView(text: "学号或密码错误，请重试。（若多次无法登录，可能是学校服务器的问题）", preferences: preferences))
         preferences.drawing.arrowPosition = .Bottom
-        tipView.append(EasyTipView(text: "用户名或密码错误，请重试。（若多次无法登录，可能是学校服务器的问题）", preferences: preferences))
-        tipView.append(EasyTipView(text: "用户名格式不正确，请重新输入。", preferences: preferences))
+        tipView.append(EasyTipView(text: "学号或密码错误，请重试。（若多次无法登录，可能是学校服务器的问题）", preferences: preferences))
+        tipView.append(EasyTipView(text: "学号格式不正确，请重新输入。", preferences: preferences))
         preferences.drawing.backgroundColor = FlatRed()
         tipView.append(EasyTipView(text: "网络错误，请重试。\n（轻触关闭提示）", preferences: preferences))
         
@@ -305,11 +305,11 @@ func request(id: String, pass: String, block: dispatch_block_t, loginFail: ()->(
 //                print("1")
                 
                 dispatch_group_async(group, backgroundQueue, {
-                    Alamofire.request(.GET, courseLidtUrl.stringByReplacingOccurrencesOfString("||typepage||", withString: "7")).responseString
+                    Alamofire.request(.GET, courseLidtUrl.stringByReplacingOccurrencesOfString("||typepage||", withString: "2")).responseString
                         {
                             response in
                             switch response.result {
-                            case .Success: getCourse(String(response), page: 7, id: id, pass: pass)
+                            case .Success: getCourse(String(response), page: 2, id: id, pass: pass)
 //                                print("7")
                             case .Failure: flag = false
                             }
@@ -318,17 +318,17 @@ func request(id: String, pass: String, block: dispatch_block_t, loginFail: ()->(
                 
 //                print("2")
                 
-                dispatch_group_async(group, backgroundQueue, {
-                    Alamofire.request(.GET, courseLidtUrl.stringByReplacingOccurrencesOfString("||typepage||", withString: "2")).responseString
-                        {
-                            response in
-                            switch response.result {
-                            case .Success: getCourse(String(response), page: 2, id: id, pass: pass)
+//                dispatch_group_async(group, backgroundQueue, {
+//                    Alamofire.request(.GET, courseLidtUrl.stringByReplacingOccurrencesOfString("||typepage||", withString: "3")).responseString
+//                        {
+//                            response in
+//                            switch response.result {
+//                            case .Success: getCourse(String(response), page: 3, id: id, pass: pass)
 //                                print("8")
-                            case .Failure: flag = false
-                            }
-                    }
-                })
+//                            case .Failure: flag = false
+//                            }
+//                    }
+//                })
                 
 //                print("3")
                 

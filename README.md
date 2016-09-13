@@ -51,3 +51,17 @@ iTsinghua, an iOS cilent designed for undergraduates at Tsinghua University.
 #### Homework Detail
 
 <img src="./image/8.pic.jpg" width = "40%" />
+
+
+
+### 功能日志
+
+* 校友圈
+* 标注签到
+* 成绩推送
+* GPA计算器
+* 成绩查询
+* 信息门户
+* 教学门户
+* ddl列表、提醒
+* 后台？

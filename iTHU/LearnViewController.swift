@@ -37,19 +37,19 @@ class LearnViewController: SwipeViewController {
         let page_one = stb.instantiateViewControllerWithIdentifier("CourseTableViewController") as! CourseTableViewController
         page_one.courseLists = courseLists.filter("page == 1")
         page_one.page = 1
-        page_one.title = "夏季"
+        page_one.title = "秋季"
         
         
         let page_two = stb.instantiateViewControllerWithIdentifier("CourseTableViewController") as! CourseTableViewController
-        page_two.courseLists = courseLists.filter("page == 7")
-        page_two.page = 7
-        page_two.title = "秋季"
+        page_two.courseLists = courseLists.filter("page == 2")
+        page_two.page = 2
+        page_two.title = "更早"
         
         
         let page_three = stb.instantiateViewControllerWithIdentifier("CourseTableViewController") as! CourseTableViewController
-        page_three.courseLists = courseLists.filter("page == 2")
-        page_three.page = 2
-        page_three.title = "更早"
+        page_three.courseLists = courseLists.filter("page == 1 OR page == 2")
+        page_three.page = 3
+        page_three.title = "全部"
         
         setViewControllerArray([page_one, page_two, page_three])
         setFirstViewController(0)
@@ -401,7 +401,7 @@ extension CourseTableViewController
                                             })
                                             
                                             dispatch_group_async(group, backgroundQueue, {
-                                                let pattern = "&id=(.*?)</tr>"
+                                                let pattern = "\\?id=(.*?)</tr>"
                                                 let regular = try! NSRegularExpression(pattern: pattern, options:.CaseInsensitive)
                                                 let results = regular.matchesInString(hwkResponseStr, options: .ReportProgress , range: NSMakeRange(0, hwkResponseNSStr.length))
                                                 let realm = try! Realm()
@@ -422,7 +422,7 @@ extension CourseTableViewController
                                                                 hwk.deadLine = fff[0]
                                                                 hwk.isNew = fff[1] != "已经提交"
                                                                 hwk.course_id = id
-                                                                print(hwk.id,hwk.title,hwk.rec_id,hwk.startDate,hwk.deadLine,hwk.isNew)
+//                                                                print(hwk.id,hwk.title,hwk.rec_id,hwk.startDate,hwk.deadLine,hwk.isNew)
 
                                                                 try! realm.write
                                                                     {
@@ -458,17 +458,17 @@ extension CourseTableViewController
                                                     let results_link = regular_link.matchesInString(eee, options: .ReportProgress , range: NSMakeRange(0, eeeNSStr.length))
                                                     
                                                     if results_link.count > 0 {
-                                                        let fff = eeeNSStr.substringWithRange(results_link[0].range).componentsSeparatedByString("\">")
-                                                        if fff.count > 4 {
-                                                            let ggg = fff[4].componentsSeparatedByString("</td>")
+                                                        let fff = eeeNSStr.substringWithRange(results_link[0].range).componentsSeparatedByString("\"center\">")
+                                                        if fff.count > 3 {
+                                                            let ggg = fff[3].componentsSeparatedByString("</td>")
                                                             if ggg.count > 1 {
                                                                 let file = FIL()
-                                                                file.link = "http://learn.tsinghua.edu.cn" + fff[0]
+                                                                file.link = "http://learn.tsinghua.edu.cn" + fff[0].componentsSeparatedByString("\">")[0]
                                                                 
                                                                 file.id = file.link.componentsSeparatedByString("&file_id=")[1]
-                                                                file.title = fff[1].componentsSeparatedByString("</td>")[0]
-                                                                file.info = fff[2].componentsSeparatedByString("</td>")[0]
-                                                                file.size = fff[3].componentsSeparatedByString("</td>")[0]
+                                                                file.title = fff[0].componentsSeparatedByString("\">")[1].componentsSeparatedByString("</td>")[0]
+                                                                file.info = fff[1].componentsSeparatedByString("</td>")[0]
+                                                                file.size = fff[2].componentsSeparatedByString("</td>")[0]
                                                                 file.date = ggg[0]
                                                                 file.isNew = ggg[1].componentsSeparatedByString("'>")[1] != ""
                                                                 file.course_id = id
@@ -688,11 +688,11 @@ class CourseDetailViewController: FormViewController {
                         
                         <<< LabelRow() {
                             $0.title = "姓名"
-                            $0.value = doc[4]?.children[1].stringValue.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
+                            $0.value = doc[4]?.children[2].stringValue.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
                         }
                         <<< LabelRow() {
                             $0.title = "电子邮件"
-                            $0.value = doc[4]?.children[3].stringValue.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
+                            $0.value = doc[4]?.children[4].stringValue.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
                         }
                         <<< LabelRow() {
                             $0.title = "电话"

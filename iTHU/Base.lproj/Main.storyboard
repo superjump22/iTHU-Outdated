@@ -57,7 +57,7 @@
         <!--事项-->
         <scene sceneID="9AM-mq-6dY">
             <objects>
-                <viewController id="ZWg-tV-5wS" sceneMemberID="viewController">
+                <viewController id="ZWg-tV-5wS" customClass="InfoViewController" customModule="iTHU" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u1k-eE-YHm"/>
                         <viewControllerLayoutGuide type="bottom" id="hHC-yo-DRJ"/>
