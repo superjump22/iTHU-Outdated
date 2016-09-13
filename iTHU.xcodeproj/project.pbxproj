@@ -10,6 +10,7 @@
 		6EE2B8ADBA241DCE8B32BFA5 /* Pods_iTHU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA720B2A08915248134DD3A /* Pods_iTHU.framework */; };
 		A322C5FD1D506E040096EA50 /* BBSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A322C5FC1D506E040096EA50 /* BBSCell.xib */; };
 		A322C5FF1D524CBB0096EA50 /* HWKCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A322C5FE1D524CBB0096EA50 /* HWKCell.xib */; };
+		A34BD6541D54560B00BC0167 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34BD6531D54560B00BC0167 /* InfoViewController.swift */; };
 		A34FFD981D530A1F00F04E37 /* FILECell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34FFD971D530A1F00F04E37 /* FILECell.xib */; };
 		A36C68D31D4DFC0D002F0E56 /* CourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A36C68D21D4DFC0D002F0E56 /* CourseCell.xib */; };
 		A38706711D4BA16F00A323C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38706701D4BA16F00A323C2 /* AppDelegate.swift */; };
@@ -58,9 +59,10 @@
 		8DF72220059FA759A564C314 /* Pods-iTHU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTHU.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTHU/Pods-iTHU.release.xcconfig"; sourceTree = "<group>"; };
 		A322C5FC1D506E040096EA50 /* BBSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSCell.xib; sourceTree = "<group>"; };
 		A322C5FE1D524CBB0096EA50 /* HWKCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWKCell.xib; sourceTree = "<group>"; };
+		A34BD6531D54560B00BC0167 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A34FFD971D530A1F00F04E37 /* FILECell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FILECell.xib; sourceTree = "<group>"; };
 		A36C68D21D4DFC0D002F0E56 /* CourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
-		A387066D1D4BA16F00A323C2 /* iTHU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTHU.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A387066D1D4BA16F00A323C2 /* iTsinghua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTsinghua.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38706701D4BA16F00A323C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A38706721D4BA16F00A323C2 /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 		A38706771D4BA16F00A323C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -162,7 +164,7 @@
 		A387066E1D4BA16F00A323C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A387066D1D4BA16F00A323C2 /* iTHU.app */,
+				A387066D1D4BA16F00A323C2 /* iTsinghua.app */,
 				A38706831D4BA16F00A323C2 /* iTHUTests.xctest */,
 				A387068E1D4BA16F00A323C2 /* iTHUUITests.xctest */,
 			);
@@ -207,6 +209,7 @@
 				A3DB50A21D4C9BEC0005C243 /* LaunchViewController.swift */,
 				A3CE65831D4BB7530083D692 /* RootViewController.swift */,
 				A38706721D4BA16F00A323C2 /* LearnViewController.swift */,
+				A34BD6531D54560B00BC0167 /* InfoViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -268,9 +271,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A387066C1D4BA16F00A323C2 /* iTHU */ = {
+		A387066C1D4BA16F00A323C2 /* iTsinghua */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A38706971D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTHU" */;
+			buildConfigurationList = A38706971D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTsinghua" */;
 			buildPhases = (
 				C5685D61E1E7002110B3686C /* [CP] Check Pods Manifest.lock */,
 				A38706691D4BA16F00A323C2 /* Sources */,
@@ -283,9 +286,9 @@
 			);
 			dependencies = (
 			);
-			name = iTHU;
+			name = iTsinghua;
 			productName = iTHU;
-			productReference = A387066D1D4BA16F00A323C2 /* iTHU.app */;
+			productReference = A387066D1D4BA16F00A323C2 /* iTsinghua.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A38706821D4BA16F00A323C2 /* iTHUTests */ = {
@@ -336,7 +339,7 @@
 				TargetAttributes = {
 					A387066C1D4BA16F00A323C2 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2K584VUA2X;
+						DevelopmentTeam = W38SF653L6;
 					};
 					A38706821D4BA16F00A323C2 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -363,7 +366,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A387066C1D4BA16F00A323C2 /* iTHU */,
+				A387066C1D4BA16F00A323C2 /* iTsinghua */,
 				A38706821D4BA16F00A323C2 /* iTHUTests */,
 				A387068D1D4BA16F00A323C2 /* iTHUUITests */,
 			);
@@ -468,6 +471,7 @@
 				A3DB50B11D4CDBE40005C243 /* NSTimerEx.swift in Sources */,
 				A3DB50B01D4CDBE40005C243 /* FadeTransition.swift in Sources */,
 				A38706711D4BA16F00A323C2 /* AppDelegate.swift in Sources */,
+				A34BD6541D54560B00BC0167 /* InfoViewController.swift in Sources */,
 				A3DB50A31D4C9BEC0005C243 /* LaunchViewController.swift in Sources */,
 				A3DB50B21D4CDBE40005C243 /* SpinerLayer.swift in Sources */,
 				A38706731D4BA16F00A323C2 /* LearnViewController.swift in Sources */,
@@ -495,12 +499,12 @@
 /* Begin PBXTargetDependency section */
 		A38706851D4BA16F00A323C2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A387066C1D4BA16F00A323C2 /* iTHU */;
+			target = A387066C1D4BA16F00A323C2 /* iTsinghua */;
 			targetProxy = A38706841D4BA16F00A323C2 /* PBXContainerItemProxy */;
 		};
 		A38706901D4BA16F00A323C2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A387066C1D4BA16F00A323C2 /* iTHU */;
+			target = A387066C1D4BA16F00A323C2 /* iTsinghua */;
 			targetProxy = A387068F1D4BA16F00A323C2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -623,11 +627,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iTHU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTHU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTsinghua;
+				PRODUCT_NAME = iTsinghua;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iTHU/Lib/iTHU-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -640,11 +646,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iTHU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTHU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTsinghua;
+				PRODUCT_NAME = iTsinghua;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iTHU/Lib/iTHU-Bridging-Header.h";
 			};
 			name = Release;
@@ -707,7 +715,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A38706971D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTHU" */ = {
+		A38706971D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTsinghua" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A38706981D4BA16F00A323C2 /* Debug */,
