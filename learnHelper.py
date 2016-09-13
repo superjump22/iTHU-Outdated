@@ -60,15 +60,16 @@ for i in temp:
     for j in i:
         print j,
 
-base2 = "http://learn.tsinghua.edu.cn/MultiLanguage/lesson/student/hom_wk_detail.jsp?id=600679&course_id=111995"
+base2 = "http://learn.tsinghua.edu.cn/MultiLanguage/lesson/student/hom_wk_brw.jsp?id=600679&course_id=111995"
 response4 = s.get(base2)
+print response4.text
 
 
 
-base3 = 'http://learn.tsinghua.edu.cn/MultiLanguage/lesson/student/download.jsp?course_id=127515'
+# base3 = 'http://learn.tsinghua.edu.cn/MultiLanguage/lesson/student/download.jsp?course_id=127515'
 
-response5 = s.get(base3)
+# response5 = s.get(base3)
 
 
-print response5.text
+# print response5.text
 
