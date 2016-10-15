@@ -68,7 +68,7 @@ public struct CellProvider<Cell: BaseCell where Cell: CellType> {
      */
     func createCell(cellStyle: UITableViewCellStyle) -> Cell {
         if let nibName = self.nibName {
-            return bundle.loadNibNamed(nibName, owner: nil, options: nil).first as! Cell
+            return bundle.loadNibNamed(nibName, owner: nil, options: nil)!.first as! Cell
         }
         return Cell.init(style: cellStyle, reuseIdentifier: nil)
     }
@@ -353,10 +353,6 @@ public struct RowNavigationOptions : OptionSetType {
     public let rawValue: Int
     public  init(rawValue: Int){ self.rawValue = rawValue}
     private init(_ options:NavigationOptions ){ self.rawValue = options.rawValue }
-    @available(*, unavailable, renamed="Disabled")
-    
-    /// No navigation.
-    public static let None = RowNavigationOptions(.Disabled)
     
     /// No navigation.
     public static let Disabled = RowNavigationOptions(.Disabled)
@@ -557,7 +553,7 @@ public class FormViewController : UIViewController, FormViewControllerProtocol {
     Called when a cell becomes first responder
     */
     public final func beginEditing<T:Equatable>(cell: Cell<T>) {
-        cell.row.hightlightCell()
+        cell.row.highlightCell()
         guard let _ = tableView where (form.inlineRowHideOptions ?? Form.defaultInlineRowHideOptions).contains(.FirstResponderChanges) else { return }
         let row = cell.baseRow
         let inlineRow = row._inlineRow
