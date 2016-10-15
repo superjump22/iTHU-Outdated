@@ -173,7 +173,7 @@ extension LoginViewController {
 
 }
 
-class LaunchViewController: UIViewController
+class LaunchViewController: UIViewController, CAAnimationDelegate
 {
 
     @IBOutlet weak var imageView: UIImageView!
