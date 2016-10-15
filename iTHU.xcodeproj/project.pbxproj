@@ -62,7 +62,7 @@
 		A34BD6531D54560B00BC0167 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A34FFD971D530A1F00F04E37 /* FILECell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FILECell.xib; sourceTree = "<group>"; };
 		A36C68D21D4DFC0D002F0E56 /* CourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
-		A387066D1D4BA16F00A323C2 /* iTsinghua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTsinghua.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A387066D1D4BA16F00A323C2 /* iTHU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTHU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38706701D4BA16F00A323C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A38706721D4BA16F00A323C2 /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 		A38706771D4BA16F00A323C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		A387066E1D4BA16F00A323C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A387066D1D4BA16F00A323C2 /* iTsinghua.app */,
+				A387066D1D4BA16F00A323C2 /* iTHU.app */,
 				A38706831D4BA16F00A323C2 /* iTHUTests.xctest */,
 				A387068E1D4BA16F00A323C2 /* iTHUUITests.xctest */,
 			);
@@ -271,9 +271,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A387066C1D4BA16F00A323C2 /* iTsinghua */ = {
+		A387066C1D4BA16F00A323C2 /* iTHU */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A38706971D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTsinghua" */;
+			buildConfigurationList = A38706971D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTHU" */;
 			buildPhases = (
 				C5685D61E1E7002110B3686C /* [CP] Check Pods Manifest.lock */,
 				A38706691D4BA16F00A323C2 /* Sources */,
@@ -286,9 +286,9 @@
 			);
 			dependencies = (
 			);
-			name = iTsinghua;
+			name = iTHU;
 			productName = iTHU;
-			productReference = A387066D1D4BA16F00A323C2 /* iTsinghua.app */;
+			productReference = A387066D1D4BA16F00A323C2 /* iTHU.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A38706821D4BA16F00A323C2 /* iTHUTests */ = {
@@ -334,21 +334,29 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = THU_GC;
 				TargetAttributes = {
 					A387066C1D4BA16F00A323C2 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = W38SF653L6;
+						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					A38706821D4BA16F00A323C2 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 2K584VUA2X;
+						LastSwiftMigration = 0800;
 						TestTargetID = A387066C1D4BA16F00A323C2;
 					};
 					A387068D1D4BA16F00A323C2 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 2K584VUA2X;
+						LastSwiftMigration = 0800;
 						TestTargetID = A387066C1D4BA16F00A323C2;
 					};
 				};
@@ -366,7 +374,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A387066C1D4BA16F00A323C2 /* iTsinghua */,
+				A387066C1D4BA16F00A323C2 /* iTHU */,
 				A38706821D4BA16F00A323C2 /* iTHUTests */,
 				A387068D1D4BA16F00A323C2 /* iTHUUITests */,
 			);
@@ -436,7 +444,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EA7343D315DCD62BA898469A /* [CP] Copy Pods Resources */ = {
@@ -499,12 +507,12 @@
 /* Begin PBXTargetDependency section */
 		A38706851D4BA16F00A323C2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A387066C1D4BA16F00A323C2 /* iTsinghua */;
+			target = A387066C1D4BA16F00A323C2 /* iTHU */;
 			targetProxy = A38706841D4BA16F00A323C2 /* PBXContainerItemProxy */;
 		};
 		A38706901D4BA16F00A323C2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A387066C1D4BA16F00A323C2 /* iTsinghua */;
+			target = A387066C1D4BA16F00A323C2 /* iTHU */;
 			targetProxy = A387068F1D4BA16F00A323C2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -551,12 +559,16 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -574,7 +586,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -596,12 +608,15 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -613,9 +628,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -624,18 +640,20 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 09079C2D1289DDC9992BF9CD /* Pods-iTHU.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iTHU/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTsinghua;
-				PRODUCT_NAME = iTsinghua;
+				PRODUCT_NAME = iTHU;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iTHU/Lib/iTHU-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -643,17 +661,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8DF72220059FA759A564C314 /* Pods-iTHU.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iTHU/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTsinghua;
-				PRODUCT_NAME = iTsinghua;
+				PRODUCT_NAME = iTHU;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iTHU/Lib/iTHU-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -665,7 +685,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTHUTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTHU.app/iTHU";
+				SWIFT_VERSION = 2.3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTsinghua.app/iTsinghua";
 			};
 			name = Debug;
 		};
@@ -677,7 +698,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTHUTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTHU.app/iTHU";
+				SWIFT_VERSION = 2.3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTsinghua.app/iTsinghua";
 			};
 			name = Release;
 		};
@@ -688,6 +710,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTHUUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = iTHU;
 			};
 			name = Debug;
@@ -699,6 +722,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTHUUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = iTHU;
 			};
 			name = Release;
@@ -715,7 +739,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A38706971D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTsinghua" */ = {
+		A38706971D4BA16F00A323C2 /* Build configuration list for PBXNativeTarget "iTHU" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A38706981D4BA16F00A323C2 /* Debug */,
