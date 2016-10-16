@@ -313,11 +313,9 @@ extension CourseTableViewController
         if useful[indexPath.section][indexPath.row] {
             let vc = stb.instantiateViewControllerWithIdentifier("CourseDetailViewController") as! CourseDetailViewController
             vc.title = "\(cell.nameLabel.text!)"
-            vc.navigationItem.backBarButtonItem?.title = "返回"
             vc.course = courseLists[indexPath.section].list[indexPath.row]
             
             self.navigationController?.pushViewController(vc, animated: true)
-            
             self.selectIndex = indexPath
             errorFlag[indexPath.section][indexPath.row] = false
             useful[indexPath.section][indexPath.row] = false
@@ -921,6 +919,8 @@ class CourseDetailViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         let realm = try! Realm()
         bbsList = realm.objects(BBS).filter("course_id == %@", course.id).sorted("date", ascending: false)
