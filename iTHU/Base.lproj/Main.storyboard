@@ -32,7 +32,7 @@
             <objects>
                 <navigationController id="naq-8b-CLu" customClass="LearnViewController" customModule="iTHU" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="学堂" image="School_26" id="bp6-Iq-FTO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dzU-Vr-aXD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dzU-Vr-aXD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,11 +45,11 @@
             </objects>
             <point key="canvasLocation" x="-3346" y="1575"/>
         </scene>
-        <!--Page View Controller-->
+        <!--课程-->
         <scene sceneID="Ddo-Ld-OlC">
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="MW3-db-c9v" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="A43-L5-2B1"/>
+                    <navigationItem key="navigationItem" title="课程" id="A43-L5-2B1"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W1R-HE-f8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -111,7 +111,7 @@
             <objects>
                 <navigationController id="OAe-BU-zis" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="wer-D8-BKx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gkF-nA-tAK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gkF-nA-tAK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
