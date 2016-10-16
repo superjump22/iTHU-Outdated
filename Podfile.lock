@@ -1,37 +1,47 @@
 PODS:
-  - Alamofire (3.5.1)
-  - ChameleonFramework/Default (2.1.0)
-  - ChameleonFramework/Swift (2.1.0):
+  - Alamofire (4.0.1)
+  - ChameleonFramework/Default (2.2.0)
+  - ChameleonFramework/Swift (2.2.0):
     - ChameleonFramework/Default
-  - EasyTipView (1.0.1)
-  - Eureka (1.7.0)
-  - Fuzi (0.4.0)
+  - EasyTipView (1.0.2)
+  - Eureka (2.0.0-beta.1)
+  - Fuzi (1.0.0)
   - Realm (2.0.2):
     - Realm/Headers (= 2.0.2)
   - Realm/Headers (2.0.2)
   - RealmSwift (2.0.2):
     - Realm (= 2.0.2)
-  - TextFieldEffects (1.2.0)
+  - TextFieldEffects (1.3.0)
 
 DEPENDENCIES:
-  - Alamofire (= 3.5.1)
-  - ChameleonFramework/Swift
-  - EasyTipView (= 1.0.1)
-  - Eureka (= 1.7.0)
-  - Fuzi (= 0.4.0)
-  - RealmSwift (= 2.0.2)
-  - TextFieldEffects (= 1.2.0)
+  - Alamofire (~> 4.0.0)
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, tag `2.2.0`)
+  - EasyTipView (~> 1.0.2)
+  - Eureka (~> 2.0.0-beta.1)
+  - Fuzi (~> 1.0.0)
+  - RealmSwift (~> 2.0.2)
+  - TextFieldEffects (~> 1.3.0)
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+    :tag: 2.2.0
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+    :tag: 2.2.0
 
 SPEC CHECKSUMS:
-  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
-  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  EasyTipView: e74f3f85bd721c9cd09c52e4588d727e3c8f55cf
-  Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
-  Fuzi: 874bf82e6d14d7310494af695ffc2a894d88e67e
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  ChameleonFramework: 2761c9d962c783c3f142050fc5b9ca5dcad9a326
+  EasyTipView: b93a19be981cc2221d6d7191d49872f547e0bebf
+  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
+  Fuzi: e88177b7cfdf3aa2b828c096c73551232a7f5c72
   Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
-  TextFieldEffects: bc4fd3bd557321bd61a0762f3f50965477a36f62
+  TextFieldEffects: ef594746f17997c813e07633f8ae5acaf9b04f27
 
-PODFILE CHECKSUM: a34763cb4e65b2029c21628655300b00bf5f35cb
+PODFILE CHECKSUM: 689e12f26ca22ec58c2289f0cef2f429ca27b76d
 
 COCOAPODS: 1.1.0.beta.2

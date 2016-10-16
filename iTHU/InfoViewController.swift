@@ -20,7 +20,7 @@ class InfoViewController: UIViewController {
             [
                 "userid": "2014011778", "userpass": "zxb3724650GC", "submit1": "登录"
         ]
-        Alamofire.request(.POST, "http://info.tsinghua.edu.cn/Login", parameters: formData).validate().responseString
+        Alamofire.request("http://info.tsinghua.edu.cn/Login", method: .post, parameters: formData).validate().responseString
             {
                 response in
         }

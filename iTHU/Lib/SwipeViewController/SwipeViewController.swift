@@ -17,19 +17,19 @@ public class SwipeViewController: UINavigationController, UIPageViewControllerDe
     //SelectionBar
     var selectionBarHeight = CGFloat(0)
     var selectionBarWidth = CGFloat(0)
-    var selectionBarColor = UIColor.blackColor()
+    var selectionBarColor = UIColor.black
     
     //SwipeButtons
     var offset = CGFloat(40)
     var gap = CGFloat(8)
     var bottomOfset = CGFloat(1)
-    var buttonColor = UIColor.blackColor()
-    var selectedButtonColor = UIColor.greenColor()
-    var buttonFont = UIFont.systemFontOfSize(18)
+    var buttonColor = UIColor.black
+    var selectedButtonColor = UIColor.green
+    var buttonFont = UIFont.systemFont(ofSize: 18)
     var currentPageIndex = 1 //Besides keeping current page index it also determines what will be the first view
     
     //NavigationBar
-    var navigationBarColor = UIColor.whiteColor()
+    var navigationBarColor = UIColor.white
     var leftBarButtonItem: UIBarButtonItem?
     var rightBarButtonItem: UIBarButtonItem?
     
@@ -58,10 +58,10 @@ public class SwipeViewController: UINavigationController, UIPageViewControllerDe
         
     }
     
-    override public func viewWillAppear(animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         
         navigationBar.barTintColor = navigationBarColor
-        navigationBar.translucent = false
+        navigationBar.isTranslucent = false
         
         setPageController()
         
@@ -83,7 +83,7 @@ public class SwipeViewController: UINavigationController, UIPageViewControllerDe
         //Init of initial view controller
         guard currentPageIndex >= 1 else {return}
         let initialViewController = pageArray[currentPageIndex - 1]
-        pageController.setViewControllers([initialViewController], direction: .Forward, animated: true, completion: nil)
+        pageController.setViewControllers([initialViewController], direction: .forward, animated: true, completion: nil)
         
     }
     
@@ -143,14 +143,14 @@ public class SwipeViewController: UINavigationController, UIPageViewControllerDe
     
     func syncScrollView() {
         for view in pageController.view.subviews {
-            if view.isKindOfClass(UIScrollView) {
+            if view.isKind(of: UIScrollView.self) {
                 pageScrollView = view as! UIScrollView
                 pageScrollView.delegate = self
             }
         }
     }
     
-    public func scrollViewDidScroll(scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let xFromCenter = view.frame.size.width - scrollView.contentOffset.x
         var width = 0 as CGFloat
@@ -213,7 +213,13 @@ public class SwipeViewController: UINavigationController, UIPageViewControllerDe
                 nextButton = buttons[button.tag - 2]
             }
             
-            let newRatio = (view.frame.width) / (2 * x + button.frame.width - (selectionBarWidth - nextButton.frame.width) / 2 - (x  - (selectionBarWidth - button.frame.width) / 2))
+            
+            
+            let temp = 2 * x + button.frame.width
+            let temp1 = (selectionBarWidth - nextButton.frame.width) / 2
+            let temp2 = x  - (selectionBarWidth - button.frame.width) / 2
+            let temp3 = temp - temp1 - temp2
+            let newRatio = (view.frame.width) / temp3
             
             selectionBar.frame = CGRect(x: selectionBarOriginX - (xFromCenter/newRatio), y: selectionBar.frame.origin.y, width: selectionBarWidth, height: selectionBarHeight)
             return
@@ -227,7 +233,7 @@ public class SwipeViewController: UINavigationController, UIPageViewControllerDe
     
     
     //Triggered when selected button in navigation view is changed
-    func scrollToNextViewController(index: Int) {
+    func scrollToNextViewController(_ index: Int) {
         
         let currentViewControllerIndex = currentPageIndex - 1
         
@@ -238,23 +244,23 @@ public class SwipeViewController: UINavigationController, UIPageViewControllerDe
             //loop - if user goes from tab 1 to tab 3 we want to have tab 2 in animation
             for viewControllerIndex in currentViewControllerIndex...index {
                 let destinationViewController = pageArray[viewControllerIndex]
-                pageController.setViewControllers([destinationViewController], direction: .Forward, animated: true, completion:nil)
+                pageController.setViewControllers([destinationViewController], direction: .forward, animated: true, completion:nil)
                 
             }
         }
             //Index is on the left
         else {
             
-            for viewControllerIndex in (index...currentViewControllerIndex).reverse() {
+            for viewControllerIndex in (index...currentViewControllerIndex).reversed() {
                 let destinationViewController = pageArray[viewControllerIndex]
-                pageController.setViewControllers([destinationViewController], direction: .Reverse, animated: true, completion: nil)
+                pageController.setViewControllers([destinationViewController], direction: .reverse, animated: true, completion: nil)
                 
             }
         }
         
     }
     
-    func switchTabs(sender: UIButton) {
+    func switchTabs(_ sender: UIButton) {
         
         let index = sender.tag - 1
         
@@ -266,12 +272,12 @@ public class SwipeViewController: UINavigationController, UIPageViewControllerDe
         scrollToNextViewController(index)
     }
     
-    func addFunction(button: UIButton) {
-        button.addTarget(self, action: #selector(self.switchTabs(_:)), forControlEvents: .TouchUpInside)
+    func addFunction(_ button: UIButton) {
+        button.addTarget(self, action: #selector(self.switchTabs(_:)), for: .touchUpInside)
     }
     
-    func setBarButtonItem(side: Side, barButtonItem: UIBarButtonItem) {
-        if side == .Left {
+    func setBarButtonItem(_ side: Side, barButtonItem: UIBarButtonItem) {
+        if side == .left {
             pageController.navigationItem.leftBarButtonItem = barButtonItem
         }
         else {
@@ -291,7 +297,7 @@ public class SwipeViewController: UINavigationController, UIPageViewControllerDe
         navigationBarHeight = navigationBar.frame.height
     }
     
-    func changeButtonColor(xFromCenter: CGFloat) {
+    func changeButtonColor(_ xFromCenter: CGFloat) {
         //Change color of button before animation finished (i.e. colour changes even when the user is between buttons
         
         let viewWidthHalf = viewWidth / 2
@@ -341,11 +347,11 @@ public class SwipeViewController: UINavigationController, UIPageViewControllerDe
 
 extension SwipeViewController: UIPageViewControllerDataSource {
     //Swiping left
-    public func pageViewController(pageViewController: UIPageViewController,
-                                   viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController,
+                                   viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         //Get current view controller index
-        guard let viewControllerIndex = pageArray.indexOf(viewController) else {return nil}
+        guard let viewControllerIndex = pageArray.index(of: viewController) else {return nil}
         
         let previousIndex = viewControllerIndex - 1
         
@@ -356,9 +362,9 @@ extension SwipeViewController: UIPageViewControllerDataSource {
     }
     
     //Swiping right
-    public func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         //Get current view controller index
-        guard let viewControllerIndex = pageArray.indexOf(viewController) else {return nil}
+        guard let viewControllerIndex = pageArray.index(of: viewController) else {return nil}
         
         let nextIndex = viewControllerIndex + 1
         

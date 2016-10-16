@@ -18,7 +18,7 @@ protocol SelectionBar {
 }
 
 enum Side {
-    case Left, Right
+    case left, right
 }
 
 protocol SwipeButton {
@@ -32,14 +32,14 @@ protocol SwipeButton {
     var buttons: Array<UIButton> { get set }
     var pageArray: Array<UIViewController> { get }
     var currentPageIndex: Int { get }
-    func addFunction(button: UIButton)
+    func addFunction(_ button: UIButton)
 }
 
 protocol BarButtonItem {
     var leftBarButtonItem: UIBarButtonItem? { get }
     var rightBarButtonItem: UIBarButtonItem? { get }
     var barButtonItemWidth: CGFloat { get set }
-    func setBarButtonItem(side: Side, barButtonItem: UIBarButtonItem)
+    func setBarButtonItem(_ side: Side, barButtonItem: UIBarButtonItem)
 }
 
 protocol Navigation {
@@ -100,14 +100,14 @@ struct NavigationView {
         guard var barButtonDelegate = barButtonDelegate else {return}
         
         if let leftBarButtonItem = barButtonDelegate.leftBarButtonItem {
-            barButtonDelegate.setBarButtonItem(.Left, barButtonItem: leftBarButtonItem)
-            if let buttonWidth = leftBarButtonItem.valueForKey("view")?.frame.width {
-                barButtonDelegate.barButtonItemWidth += buttonWidth
-            }
+            barButtonDelegate.setBarButtonItem(.left, barButtonItem: leftBarButtonItem)
+            let buttonWidth = (leftBarButtonItem.value(forKey: "view") as AnyObject).frame.width
+            barButtonDelegate.barButtonItemWidth += buttonWidth
+            
         }
         
         if let rightBarButtonItem = barButtonDelegate.rightBarButtonItem {
-            barButtonDelegate.setBarButtonItem(.Right, barButtonItem: rightBarButtonItem)
+            barButtonDelegate.setBarButtonItem(.right, barButtonItem: rightBarButtonItem)
         }
         
         
@@ -138,7 +138,7 @@ struct NavigationView {
             guard let pageTitle = page.title else { return }
             let attributes = [NSFontAttributeName:buttonDelegate.buttonFont]
             let attributedTitle = NSAttributedString(string: pageTitle, attributes: attributes)
-            button.setAttributedTitle(attributedTitle, forState: .Normal)
+            button.setAttributedTitle(attributedTitle, for: UIControlState())
             
             
             guard let titleLabel = button.titleLabel else {continue}

@@ -20,7 +20,7 @@ class LearnViewController: SwipeViewController {
     
     var flag: Bool = true
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         if flag {
             flag = false
             super.viewWillAppear(animated)
@@ -33,33 +33,33 @@ class LearnViewController: SwipeViewController {
         
         let stb = UIStoryboard(name: "Design", bundle: nil)
         let realm = try! Realm()
-        let courseLists = realm.objects(CourseList).sorted("compareStr", ascending: false)
-        let page_one = stb.instantiateViewControllerWithIdentifier("CourseTableViewController") as! CourseTableViewController
+        let courseLists = realm.objects(CourseList.self).sorted(byProperty: "compareStr", ascending: false)
+        let page_one = stb.instantiateViewController(withIdentifier: "CourseTableViewController") as! CourseTableViewController
         page_one.courseLists = courseLists.filter("page == 1")
         page_one.page = 1
         page_one.title = "秋季"
         
         
-        let page_two = stb.instantiateViewControllerWithIdentifier("CourseTableViewController") as! CourseTableViewController
+        let page_two = stb.instantiateViewController(withIdentifier: "CourseTableViewController") as! CourseTableViewController
         page_two.courseLists = courseLists.filter("page == 2")
         page_two.page = 2
         page_two.title = "更早"
         
         
-        let page_three = stb.instantiateViewControllerWithIdentifier("CourseTableViewController") as! CourseTableViewController
+        let page_three = stb.instantiateViewController(withIdentifier: "CourseTableViewController") as! CourseTableViewController
         page_three.courseLists = courseLists.filter("page == 1 OR page == 2")
         page_three.page = 3
         page_three.title = "全部"
         
-        setViewControllerArray([page_one, page_two, page_three])
-        setFirstViewController(0)
-        setSelectionBar(40, height: 2, color: UIColor(red: 0.23, green: 0.55, blue: 0.92, alpha: 1.0))
-        setButtonsWithSelectedColor(UIFont(name: "HelveticaNeue-Light", size: 16)!, color: UIColor.darkGrayColor(), selectedColor: UIColor.blackColor())
-        setButtonsOffset(30, gap: 8, bottomOffset: 2)
+        setViewControllerArray(viewControllers: [page_one, page_two, page_three])
+        setFirstViewController(viewControllerIndex: 0)
+        setSelectionBar(width: 40, height: 2, color: UIColor(red: 0.23, green: 0.55, blue: 0.92, alpha: 1.0))
+        setButtonsWithSelectedColor(font: UIFont(name: "HelveticaNeue-Light", size: 16)!, color: UIColor.darkGray, selectedColor: UIColor.black)
+        setButtonsOffset(offset: 30, gap: 8, bottomOffset: 2)
         
-        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: nil)
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
         barButtonItem.tintColor = UIColor(red: 0.23, green: 0.55, blue: 0.92, alpha: 1.0)
-        setNavigationWithItem(UIColor.whiteColor(), leftItem: nil, rightItem: barButtonItem)
+        setNavigationWithItem(color: UIColor.white, leftItem: nil, rightItem: barButtonItem)
         
     }
     
@@ -112,11 +112,11 @@ class CourseTableViewController: UITableViewController {
     var errorFlag: [[Bool]] = []
     var tipView: EasyTipView!
     var preferences: EasyTipView.Preferences!
-    var selectIndex : NSIndexPath!
+    var selectIndex : IndexPath!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.registerNib(UINib(nibName:"CourseCell", bundle:nil), forCellReuseIdentifier:"CourseCell")
+        self.tableView.register(UINib(nibName:"CourseCell", bundle:nil), forCellReuseIdentifier:"CourseCell")
         for i in 0..<courseLists.count
         {
             useful.append([Bool]())
@@ -130,31 +130,31 @@ class CourseTableViewController: UITableViewController {
         }
         preferences = EasyTipView.Preferences()
         preferences.drawing.font = UIFont(name: "HelveticaNeue-Light", size: 16)!
-        preferences.drawing.foregroundColor = UIColor.whiteColor()
+        preferences.drawing.foregroundColor = UIColor.white
         preferences.drawing.backgroundColor = UIColor(hexString: "7241B7", withAlpha: 0.9)
         preferences.drawing.arrowHeight = 24.0
         preferences.drawing.arrowWidth = 24.0
-        preferences.positioning.maxWidth = UIScreen.mainScreen().bounds.width * 0.618
+        preferences.positioning.maxWidth = UIScreen.main.bounds.width * 0.618
         preferences.animating.showDuration = 0.618
         preferences.animating.dismissDuration = 0.618
-        preferences.drawing.arrowPosition = .Top
+        preferences.drawing.arrowPosition = .top
         tipView = EasyTipView(text: "")
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.parentViewController?.navigationItem.rightBarButtonItem?.target = self
-        self.parentViewController?.navigationItem.rightBarButtonItem?.action = #selector(self.refresh(_:))
+        self.parent?.navigationItem.rightBarButtonItem?.target = self
+        self.parent?.navigationItem.rightBarButtonItem?.action = #selector(self.refresh(_:))
         if selectIndex != nil {
-            let cell = tableView.cellForRowAtIndexPath(selectIndex) as! CourseCell
-            cell.pushIcon.hidden = true
+            let cell = tableView.cellForRow(at: selectIndex) as! CourseCell
+            cell.pushIcon.isHidden = true
             cell.activity.startAnimating()
             test(courseLists[selectIndex.section].list[selectIndex.row].id, indexPath: selectIndex)
             selectIndex = nil
         }
     }
     
-    func refresh(sender: UIBarButtonItem) {
+    func refresh(_ sender: UIBarButtonItem) {
         self.tipView.dismiss()
         for i in 0..<courseLists.count
         {
@@ -167,14 +167,14 @@ class CourseTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! CourseCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath) as! CourseCell
 
         return cell
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
         
         guard case let cell as CourseCell = cell else
@@ -186,74 +186,74 @@ class CourseTableViewController: UITableViewController {
         let course_id: String = course.id
         let course_name: String = course.name
         cell.nameLabel.text = course_name
-        cell.nameLabel.textColor = UIColor.blackColor()
-        cell.bbsNewLabel.textColor = UIColor.blackColor()
-        cell.hwkNewLabel.textColor = UIColor.blackColor()
-        cell.fileNewLabel.textColor = UIColor.blackColor()
-        cell.mask.backgroundColor = UIColor.whiteColor()
-        cell.backgroundColor = UIColor.clearColor()
+        cell.nameLabel.textColor = UIColor.black
+        cell.bbsNewLabel.textColor = UIColor.black
+        cell.hwkNewLabel.textColor = UIColor.black
+        cell.fileNewLabel.textColor = UIColor.black
+        cell.mask.backgroundColor = UIColor.white
+        cell.backgroundColor = UIColor.clear
         
         if errorFlag[indexPath.section][indexPath.row] {
             useful[indexPath.section][indexPath.row] = false
             //            errorFlag[indexPath.section][indexPath.row] = false
             startLoading[indexPath.section][indexPath.row] = false
             cell.activity.stopAnimating()
-            cell.pushIcon.hidden = true
-            cell.mask.backgroundColor = UIColor.clearColor()
+            cell.pushIcon.isHidden = true
+            cell.mask.backgroundColor = UIColor.clear
             cell.backgroundColor = UIColor(hexString: "ff0000", withAlpha: 0.2)
         } else if useful[indexPath.section][indexPath.row] {
-            let bbsLists = realm.objects(BBS).filter("course_id == %@", course_id)
+            let bbsLists = realm.objects(BBS.self).filter("course_id == %@", course_id)
             let bbsCount = bbsLists.count
             let bbsNewCount = bbsLists.filter("isNew == true").count
             
-            let hwkLists = realm.objects(HWK).filter("course_id == %@", course_id)
+            let hwkLists = realm.objects(HWK.self).filter("course_id == %@", course_id)
             let hwkCount = hwkLists.count
             let hwkNewCount = hwkLists.filter("isNew == true").count
             
-            let fileLists = realm.objects(FIL).filter("course_id == %@", course_id)
+            let fileLists = realm.objects(FIL.self).filter("course_id == %@", course_id)
             let fileCount = fileLists.count
             let fileNewCount = fileLists.filter("isNew == true").count
             
             cell.bbsNewLabel.text = String(bbsNewCount)
             if cell.bbsNewLabel.text != "0"
             {
-                cell.nameLabel.textColor = FlatRed()
-                cell.bbsNewLabel.textColor = FlatRed()
+                cell.nameLabel.textColor = UIColor.red.flatten()
+                cell.bbsNewLabel.textColor = UIColor.red.flatten()
             }
             
             cell.bbsLabel.text = "/" + String(bbsCount)
-            cell.bbsLabel.textColor = UIColor.blackColor()
+            cell.bbsLabel.textColor = UIColor.black
             
             cell.hwkNewLabel.text = String(hwkNewCount)
             if cell.hwkNewLabel.text != "0"
             {
-                cell.nameLabel.textColor = FlatRed()
-                cell.hwkNewLabel.textColor = FlatRed()
+                cell.nameLabel.textColor = UIColor.red.flatten()
+                cell.hwkNewLabel.textColor = UIColor.red.flatten()
             }
             
             cell.hwkLabel.text = "/" + String(hwkCount)
-            cell.hwkLabel.textColor = UIColor.blackColor()
+            cell.hwkLabel.textColor = UIColor.black
             
             cell.fileNewLabel.text = String(fileNewCount)
             if cell.fileNewLabel.text != "0"
             {
-                cell.nameLabel.textColor = FlatRed()
-                cell.fileNewLabel.textColor = FlatRed()
+                cell.nameLabel.textColor = UIColor.red.flatten()
+                cell.fileNewLabel.textColor = UIColor.red.flatten()
             }
             
             cell.fileLabel.text = "/" + String(fileCount)
-            cell.fileLabel.textColor = UIColor.blackColor()
+            cell.fileLabel.textColor = UIColor.black
             cell.activity.stopAnimating()
-            cell.pushIcon.hidden = false
+            cell.pushIcon.isHidden = false
         } else if startLoading[indexPath.section][indexPath.row] {
-            cell.pushIcon.hidden = true
+            cell.pushIcon.isHidden = true
             cell.activity.startAnimating()
         }
         else {
             errorFlag[indexPath.section][indexPath.row] = false
             useful[indexPath.section][indexPath.row] = false
             startLoading[indexPath.section][indexPath.row] = true
-            cell.pushIcon.hidden = true
+            cell.pushIcon.isHidden = true
             cell.activity.startAnimating()
             test(course_id, indexPath: indexPath)
         }
@@ -266,17 +266,17 @@ class CourseTableViewController: UITableViewController {
 extension CourseTableViewController
 {
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    override func numberOfSections(in tableView: UITableView) -> Int
     {
         return courseLists.count
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return courseLists[section].list.count
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         if section == 0 && courseLists[section].page == 1 {
             return courseLists[section].semester + "（当前学期）"
@@ -284,12 +284,12 @@ extension CourseTableViewController
         return courseLists[section].semester
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 80.0
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0
         {
             return 50.0
@@ -297,7 +297,7 @@ extension CourseTableViewController
         return 30.0
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == courseLists.count - 1
         {
             return 53.0
@@ -305,12 +305,12 @@ extension CourseTableViewController
         return 0.0
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! CourseCell
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let cell = tableView.cellForRow(at: indexPath) as! CourseCell
+        tableView.deselectRow(at: indexPath, animated: true)
         if useful[indexPath.section][indexPath.row] {
-            let vc = stb.instantiateViewControllerWithIdentifier("CourseDetailViewController") as! CourseDetailViewController
+            let vc = stb.instantiateViewController(withIdentifier: "CourseDetailViewController") as! CourseDetailViewController
             vc.title = "\(cell.nameLabel.text!)"
             vc.course = courseLists[indexPath.section].list[indexPath.row]
             
@@ -324,7 +324,7 @@ extension CourseTableViewController
         } else if (errorFlag[indexPath.section][indexPath.row]) {
             
             tipView = EasyTipView(text: "网络错误\n课程「\(cell.nameLabel.text!)」数据加载失败，点此刷新。\n（轻触关闭提示）", preferences: preferences)
-            tipView.show(forItem: self.parentViewController!.navigationItem.rightBarButtonItem!)
+            tipView.show(forItem: self.parent!.navigationItem.rightBarButtonItem!)
             
         }
     }
@@ -334,52 +334,52 @@ extension CourseTableViewController
 
 extension CourseTableViewController
 {
-    func test(id: String, indexPath: NSIndexPath)
+    func test(_ id: String, indexPath: IndexPath)
     {
 
 
-        Alamofire.request(.GET, bbsListUrl.stringByReplacingOccurrencesOfString("||COURSEID||", withString: id)).responseString
+        Alamofire.request(bbsListUrl.replacingOccurrences(of: "||COURSEID||", with: id)).responseString
             {
                 response in
                 switch response.result {
-                case .Success:
-                    let bbsResponseStr = String(response).stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\r", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "").stringByReplacingOccurrencesOfString("\t", withString: "")
+                case .success:
+                    let bbsResponseStr = String(describing: response).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\r", with: "").replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\t", with: "")
                     let bbsResponseNSStr = NSString(string: bbsResponseStr)
-                    Alamofire.request(.GET, hwkListUrl.stringByReplacingOccurrencesOfString("||COURSEID||", withString: id)).responseString
+                    Alamofire.request(hwkListUrl.replacingOccurrences(of: "||COURSEID||", with: id)).responseString
                         {
                             response in
                             switch response.result {
-                            case .Success:
-                                let hwkResponseStr = String(response).stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\r", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "").stringByReplacingOccurrencesOfString("\t", withString: "")
+                            case .success:
+                                let hwkResponseStr = String(describing: response).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\r", with: "").replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\t", with: "")
                                 let hwkResponseNSStr = NSString(string: hwkResponseStr)
-                                Alamofire.request(.GET, fileListUrl.stringByReplacingOccurrencesOfString("||COURSEID||", withString: id)).responseString
+                                Alamofire.request(fileListUrl.replacingOccurrences(of: "||COURSEID||", with: id)).responseString
                                     {
                                         response in
                                         switch response.result {
-                                        case .Success:
-                                            let fileResponseStr = String(response).stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\r", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "").stringByReplacingOccurrencesOfString("\t", withString: "")
+                                        case .success:
+                                            let fileResponseStr = String(describing: response).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\r", with: "").replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\t", with: "")
                                             let fileResponseNSStr = NSString(string: fileResponseStr)
-                                            let defaultPriority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-                                            let backgroundQueue = dispatch_get_global_queue(defaultPriority, 0)
-                                            let group: dispatch_group_t = dispatch_group_create()
+                                            let backgroundQueue = DispatchQueue.global(qos: .default)
+
+                                            let group: DispatchGroup = DispatchGroup()
                                             
-                                            dispatch_group_async(group, backgroundQueue, {
+                                            backgroundQueue.async(group: group, execute: {
                                                 let pattern = "\\d*&course_id=(.*?)</tr>"
-                                                let regular = try! NSRegularExpression(pattern: pattern, options:.CaseInsensitive)
-                                                let results = regular.matchesInString(bbsResponseStr, options: .ReportProgress , range: NSMakeRange(0, bbsResponseNSStr.length))
+                                                let regular = try! NSRegularExpression(pattern: pattern, options:.caseInsensitive)
+                                                let results = regular.matches(in: bbsResponseStr, options: .reportProgress , range: NSMakeRange(0, bbsResponseNSStr.length))
                                                 let realm = try! Realm()
                                                 for result in results
                                                 {
-                                                    let eee = bbsResponseNSStr.substringWithRange(result.range).stringByReplacingOccurrencesOfString("<fontcolor=red>", withString: "").stringByReplacingOccurrencesOfString("</font>", withString: "").componentsSeparatedByString("=25>")
+                                                    let eee = bbsResponseNSStr.substring(with: result.range).replacingOccurrences(of: "<fontcolor=red>", with: "").replacingOccurrences(of: "</font>", with: "").components(separatedBy:"=25>")
                                                     if eee.count > 3 {
-                                                        let fff = eee[0].stringByReplacingOccurrencesOfString("</a", withString: "'").componentsSeparatedByString("&course_id=")
+                                                        let fff = eee[0].replacingOccurrences(of: "</a", with: "'").components(separatedBy:"&course_id=")
                                                         if fff.count > 1 {
                                                             let bbs = BBS()
                                                             bbs.id = fff[0]
-                                                            bbs.title = fff[1].componentsSeparatedByString("'>")[1].stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
-                                                            bbs.owner = eee[1].componentsSeparatedByString("</td")[0]
-                                                            bbs.date = eee[2].componentsSeparatedByString("</td")[0]
-                                                            bbs.isNew = eee[3].componentsSeparatedByString("</td")[0] == "未读"
+                                                            bbs.title = fff[1].components(separatedBy:"'>")[1].replacingOccurrences(of: "&nbsp;", with: " ")
+                                                            bbs.owner = eee[1].components(separatedBy:"</td")[0]
+                                                            bbs.date = eee[2].components(separatedBy:"</td")[0]
+                                                            bbs.isNew = eee[3].components(separatedBy:"</td")[0] == "未读"
                                                             bbs.course_id = id
                                                             try! realm.write
                                                                 {
@@ -400,24 +400,24 @@ extension CourseTableViewController
                                                 
                                             })
                                             
-                                            dispatch_group_async(group, backgroundQueue, {
+                                            backgroundQueue.async(group: group, execute: {
                                                 let pattern = "\\?id=(.*?)</tr>"
-                                                let regular = try! NSRegularExpression(pattern: pattern, options:.CaseInsensitive)
-                                                let results = regular.matchesInString(hwkResponseStr, options: .ReportProgress , range: NSMakeRange(0, hwkResponseNSStr.length))
+                                                let regular = try! NSRegularExpression(pattern: pattern, options:.caseInsensitive)
+                                                let results = regular.matches(in: hwkResponseStr, options: .reportProgress , range: NSMakeRange(0, hwkResponseNSStr.length))
                                                 let realm = try! Realm()
                                                 for result in results
                                                 {
-                                                    let eee = hwkResponseNSStr.substringWithRange(result.range).stringByReplacingOccurrencesOfString("<fontcolor=red>", withString: "").stringByReplacingOccurrencesOfString("</font>", withString: "").componentsSeparatedByString("</td><tdwidth=\"10%\">")
+                                                    let eee = hwkResponseNSStr.substring(with: result.range).replacingOccurrences(of: "<fontcolor=red>", with: "").replacingOccurrences(of: "</font>", with: "").components(separatedBy:"</td><tdwidth=\"10%\">")
                                                     if eee.count > 2 {
-                                                        let fff = eee[2].componentsSeparatedByString("</td><tdwidth=\"15%\">")
-                                                        let ggg = eee[0].stringByReplacingOccurrencesOfString("&course_", withString: "").stringByReplacingOccurrencesOfString("&rec_", withString: "").componentsSeparatedByString("id=")
+                                                        let fff = eee[2].components(separatedBy:"</td><tdwidth=\"15%\">")
+                                                        let ggg = eee[0].replacingOccurrences(of: "&course_", with: "").replacingOccurrences(of: "&rec_", with: "").components(separatedBy:"id=")
                                                         if fff.count > 1 && ggg.count > 3 {
-                                                            let hhh = ggg[3].componentsSeparatedByString("\">")
+                                                            let hhh = ggg[3].components(separatedBy:"\">")
                                                             if hhh.count > 1 {
                                                                 let hwk = HWK()
                                                                 hwk.id = ggg[1]
                                                                 hwk.rec_id = hhh[0]
-                                                                hwk.title = hhh[1].stringByReplacingOccurrencesOfString("</a>", withString: "").stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
+                                                                hwk.title = hhh[1].replacingOccurrences(of: "</a>", with: "").replacingOccurrences(of: "&nbsp;", with: " ")
                                                                 hwk.startDate = eee[1]
                                                                 hwk.deadLine = fff[0]
                                                                 hwk.isNew = fff[1] != "已经提交"
@@ -444,33 +444,33 @@ extension CourseTableViewController
                                                 
                                             })
                                             
-                                            dispatch_group_async(group, backgroundQueue, {
+                                            backgroundQueue.async(group: group, execute: {
                                                 let pattern = "<trclass(.*?)</tr>"
-                                                let regular = try! NSRegularExpression(pattern: pattern, options:.CaseInsensitive)
-                                                let results = regular.matchesInString(fileResponseStr, options: .ReportProgress , range: NSMakeRange(0, fileResponseNSStr.length))
+                                                let regular = try! NSRegularExpression(pattern: pattern, options:.caseInsensitive)
+                                                let results = regular.matches(in: fileResponseStr, options: .reportProgress , range: NSMakeRange(0, fileResponseNSStr.length))
                                                 let realm = try! Realm()
                                                 for result in results
                                                 {
-                                                    let eee = fileResponseNSStr.substringWithRange(result.range).stringByReplacingOccurrencesOfString("<fontcolor=red>", withString: "").stringByReplacingOccurrencesOfString("</font>", withString: "").stringByReplacingOccurrencesOfString("</a>", withString: "").stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
+                                                    let eee = fileResponseNSStr.substring(with: result.range).replacingOccurrences(of: "<fontcolor=red>", with: "").replacingOccurrences(of: "</font>", with: "").replacingOccurrences(of: "</a>", with: "").replacingOccurrences(of: "&nbsp;", with: " ")
                                                     let eeeNSStr = NSString(string: eee)
                                                     let pattern_link = "/uploadFile/downloadFile_student.jsp(.*?)</tr>"
-                                                    let regular_link = try! NSRegularExpression(pattern: pattern_link, options:.CaseInsensitive)
-                                                    let results_link = regular_link.matchesInString(eee, options: .ReportProgress , range: NSMakeRange(0, eeeNSStr.length))
+                                                    let regular_link = try! NSRegularExpression(pattern: pattern_link, options:.caseInsensitive)
+                                                    let results_link = regular_link.matches(in: eee, options: .reportProgress , range: NSMakeRange(0, eeeNSStr.length))
                                                     
                                                     if results_link.count > 0 {
-                                                        let fff = eeeNSStr.substringWithRange(results_link[0].range).componentsSeparatedByString("\"center\">")
+                                                        let fff = eeeNSStr.substring(with: results_link[0].range).components(separatedBy:"\"center\">")
                                                         if fff.count > 3 {
-                                                            let ggg = fff[3].componentsSeparatedByString("</td>")
+                                                            let ggg = fff[3].components(separatedBy:"</td>")
                                                             if ggg.count > 1 {
                                                                 let file = FIL()
-                                                                file.link = "http://learn.tsinghua.edu.cn" + fff[0].componentsSeparatedByString("\">")[0]
+                                                                file.link = "http://learn.tsinghua.edu.cn" + fff[0].components(separatedBy:"\">")[0]
                                                                 
-                                                                file.id = file.link.componentsSeparatedByString("&file_id=")[1]
-                                                                file.title = fff[0].componentsSeparatedByString("\">")[1].componentsSeparatedByString("</td>")[0]
-                                                                file.info = fff[1].componentsSeparatedByString("</td>")[0]
-                                                                file.size = fff[2].componentsSeparatedByString("</td>")[0]
+                                                                file.id = file.link.components(separatedBy: "&file_id=")[1]
+                                                                file.title = fff[0].components(separatedBy:"\">")[1].components(separatedBy:"</td>")[0]
+                                                                file.info = fff[1].components(separatedBy:"</td>")[0]
+                                                                file.size = fff[2].components(separatedBy:"</td>")[0]
                                                                 file.date = ggg[0]
-                                                                file.isNew = ggg[1].componentsSeparatedByString("'>")[1] != ""
+                                                                file.isNew = ggg[1].components(separatedBy:"'>")[1] != ""
                                                                 file.course_id = id
                                                                 try! realm.write
                                                                     {
@@ -492,33 +492,33 @@ extension CourseTableViewController
                                                 
                                             })
                                             
-                                            dispatch_group_notify(group, backgroundQueue, {
+                                            group.notify(queue: backgroundQueue, execute: {
                                                 
-                                                dispatch_async(dispatch_get_main_queue(), {
+                                                DispatchQueue.main.async(execute:{
                                                     if !self.errorFlag[indexPath.section][indexPath.row] {
                                                         self.useful[indexPath.section][indexPath.row] = true
-                                                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+                                                        self.tableView.reloadRows(at: [indexPath], with: .none)
                                                     } else {
-                                                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+                                                        self.tableView.reloadRows(at: [indexPath], with: .none)
                                                     }
                                                 })
                                             })
                                             
-                                        case .Failure:
+                                        case .failure:
                                             self.errorFlag[indexPath.section][indexPath.row] = true
-                                            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+                                            self.tableView.reloadRows(at: [indexPath], with: .none)
                                         }
                                 }
                                 
-                            case .Failure:
+                            case .failure:
                                 self.errorFlag[indexPath.section][indexPath.row] = true
-                                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+                                self.tableView.reloadRows(at: [indexPath], with: .none)
                             }
                     }
                     
-                case .Failure:
+                case .failure:
                     self.errorFlag[indexPath.section][indexPath.row] = true
-                    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+                    self.tableView.reloadRows(at: [indexPath], with: .none)
                 }
         }
     }
@@ -537,18 +537,18 @@ public final class BBSCell: Cell<BBS>, CellType {
         date.text = row.value?.date
         owner.text = row.value?.owner
         if row.value!.isNew {
-            title.textColor = FlatRed()
+            title.textColor = UIColor.red.flatten()
         } else {
-            title.textColor = UIColor.blackColor()
+            title.textColor = UIColor.black
         }
     }
     
     override public func update() {
         super.update()
         if row.value!.isNew {
-            title.textColor = FlatRed()
+            title.textColor = UIColor.red.flatten()
         } else {
-            title.textColor = UIColor.blackColor()
+            title.textColor = UIColor.black
         }
     }
 }
@@ -565,18 +565,18 @@ public final class HWKCell: Cell<HWK>, CellType {
         startDate.text = row.value?.startDate
         deadLine.text = row.value?.deadLine
         if row.value!.isNew {
-            title.textColor = FlatRed()
+            title.textColor = UIColor.red.flatten()
         } else {
-            title.textColor = UIColor.blackColor()
+            title.textColor = UIColor.black
         }
     }
     
     override public func update() {
         super.update()
         if row.value!.isNew {
-            title.textColor = FlatRed()
+            title.textColor = UIColor.red.flatten()
         } else {
-            title.textColor = UIColor.blackColor()
+            title.textColor = UIColor.black
         }
     }
 }
@@ -595,18 +595,18 @@ public final class FILECell: Cell<FIL>, CellType {
         size.text = row.value?.size
         info.text = row.value?.info
         if row.value!.isNew {
-            title.textColor = FlatRed()
+            title.textColor = UIColor.red.flatten()
         } else {
-            title.textColor = UIColor.blackColor()
+            title.textColor = UIColor.black
         }
     }
     
     override public func update() {
         super.update()
         if row.value!.isNew {
-            title.textColor = FlatRed()
+            title.textColor = UIColor.red.flatten()
         } else {
-            title.textColor = UIColor.blackColor()
+            title.textColor = UIColor.black
         }
     }
 }
@@ -642,7 +642,7 @@ class CourseDetailViewController: FormViewController {
     var hwkList: Results<HWK>!
     var fileList: Results<FIL>!
     
-    @IBAction func chageSegment(sender: UISegmentedControl) {
+    @IBAction func chageSegment(_ sender: UISegmentedControl) {
         (form.rowByTag("segments") as! SegmentedRow<Int>).value = sender.selectedSegmentIndex
     }
     
@@ -652,51 +652,51 @@ class CourseDetailViewController: FormViewController {
     
     func loadINFO() {
         
-        let section = form.sectionByTag("COURSEINFO")!
-        let section1 = form.sectionByTag("TEACHERINFO")!
+        let section = form.sectionBy(tag: "COURSEINFO")!
+        let section1 = form.sectionBy(tag: "TEACHERINFO")!
         
-        Alamofire.request(.GET, ("http://learn.tsinghua.edu.cn/MultiLanguage/lesson/student/course_info.jsp?course_id=" + self.course.id).stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!).validate().responseString
+        Alamofire.request(("http://learn.tsinghua.edu.cn/MultiLanguage/lesson/student/course_info.jsp?course_id=" + self.course.id).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!).validate().responseString
             {
                 response in
                 do {
                     // if encoding is omitted, it defaults to NSUTF8StringEncoding
-                    let doc = try HTMLDocument(string: String(response), encoding: NSUTF8StringEncoding).xpath("//*[@id=\"table_box\"]/tr")
+                    let doc = try HTMLDocument(string: String(describing: response), encoding: String.Encoding.utf8).xpath("//*[@id=\"table_box\"]/tr")
                     
                     section
                         <<< LabelRow() {
                             $0.title = "课程编号"
-                            $0.value = doc[0]?.children[1].stringValue
+                            $0.value = doc[0].children[1].stringValue
                         }
                         <<< LabelRow() {
                             $0.title = "课程序号"
-                            $0.value = doc[0]?.children[3].stringValue
+                            $0.value = doc[0].children[3].stringValue
                         }
                         <<< LabelRow() {
                             $0.title = "课程名称"
-                            $0.value = doc[1]?.children[1].stringValue
+                            $0.value = doc[1].children[1].stringValue
                         }
                         <<< LabelRow() {
                             $0.title = "学分"
-                            $0.value = doc[2]?.children[1].stringValue
+                            $0.value = doc[2].children[1].stringValue
                         }
                         <<< LabelRow() {
                             $0.title = "学时"
-                            $0.value = doc[2]?.children[3].stringValue
+                            $0.value = doc[2].children[3].stringValue
                         }
                         
                     section1
                         
                         <<< LabelRow() {
                             $0.title = "姓名"
-                            $0.value = doc[4]?.children[2].stringValue.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
+                            $0.value = doc[4].children[2].stringValue.replacingOccurrences(of: "&nbsp;", with: " ")
                         }
                         <<< LabelRow() {
                             $0.title = "电子邮件"
-                            $0.value = doc[4]?.children[4].stringValue.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
+                            $0.value = doc[4].children[4].stringValue.replacingOccurrences(of: "&nbsp;", with: " ")
                         }
                         <<< LabelRow() {
                             $0.title = "电话"
-                            $0.value = doc[5]?.children[1].stringValue.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
+                            $0.value = doc[5].children[1].stringValue.replacingOccurrences(of: "&nbsp;", with: " ")
                         }
                         <<< LabelRow() {
                             $0.title = "简介"
@@ -706,9 +706,9 @@ class CourseDetailViewController: FormViewController {
                     var str: NSAttributedString!
                     var str1: NSMutableAttributedString!
                     
-                    result = doc[6]!.children[1].rawXML
+                    result = doc[6].children[1].rawXML
                     
-                    str = try NSAttributedString(data: result.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+                    str = try NSAttributedString(data: result.data(using: String.Encoding.unicode, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
                     str1 = NSMutableAttributedString(attributedString: str)
                     str1.addAttributes([NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 16)!], range: NSMakeRange(0, str.length))
                     
@@ -731,7 +731,7 @@ class CourseDetailViewController: FormViewController {
 
     func loadBBS() {
 
-        let section = form.sectionByTag("BBS")!
+        let section = form.sectionBy(tag: "BBS")!
         
         let bbsNewList = bbsList.filter("isNew == true")
         let bbsOldList = bbsList.filter("isNew == false")
@@ -779,7 +779,7 @@ class CourseDetailViewController: FormViewController {
     
     func loadHWK() {
         
-        let section = form.sectionByTag("HWK")!
+        let section = form.sectionBy(tag: "HWK")!
         
         let hwkNewList = hwkList.filter("isNew == true")
         let hwkOldList = hwkList.filter("isNew == false")
@@ -824,7 +824,7 @@ class CourseDetailViewController: FormViewController {
 
     func loadFILE() {
         
-        let section = form.sectionByTag("FILE")!
+        let section = form.sectionBy(tag: "FILE")!
         
         let fileNewList = fileList.filter("isNew == true")
         let fileOldList = fileList.filter("isNew == false")
@@ -921,9 +921,9 @@ class CourseDetailViewController: FormViewController {
         super.viewDidLoad()
         
         let realm = try! Realm()
-        bbsList = realm.objects(BBS).filter("course_id == %@", course.id).sorted("date", ascending: false)
-        hwkList = realm.objects(HWK).filter("course_id == %@", course.id).sorted("startDate", ascending: false)
-        fileList = realm.objects(FIL).filter("course_id == %@", course.id).sorted("date", ascending: false)
+        bbsList = realm.objects(BBS.self).filter("course_id == %@", course.id).sorted(byProperty: "date", ascending: false)
+        hwkList = realm.objects(HWK.self).filter("course_id == %@", course.id).sorted(byProperty: "startDate", ascending: false)
+        fileList = realm.objects(FIL.self).filter("course_id == %@", course.id).sorted(byProperty: "date", ascending: false)
         
         form +++ Section()
             <<< SegmentedRow<Int>("segments"){
@@ -964,8 +964,8 @@ class CourseDetailViewController: FormViewController {
         
         self.tableView!.estimatedRowHeight = 64.0
         self.tableView!.rowHeight = UITableViewAutomaticDimension
-        let rect = CGRectMake(0, 0, 0
-            , 0.1)
+        let rect = CGRect(x: 0, y: 0, width: 0
+            , height: 0.1)
         self.tableView?.tableHeaderView = UIView(frame: rect)
         self.tableView?.tableFooterView = UIView(frame: rect)
     }
@@ -996,10 +996,10 @@ class BBSDetailViewController: FormViewController {
             
             <<< TextAreaRow() {
                 $0.value = self.bbs_title
-                $0.textAreaHeight = .Dynamic(initialTextViewHeight: 24)
+                $0.textAreaHeight = .dynamic(initialTextViewHeight: 24)
                 }.cellUpdate({ (cell, row) -> () in
                     cell.textView.font = UIFont(name: "HelveticaNeue", size: 16)
-                    cell.textView.editable = false
+                    cell.textView.isEditable = false
                 })
             
             <<< LabelRow() {
@@ -1008,18 +1008,18 @@ class BBSDetailViewController: FormViewController {
         }
         
         if course_id != nil && bbs_id != nil {
-            Alamofire.request(.GET, bbsUrl.stringByReplacingOccurrencesOfString("||BBSID||", withString: self.bbs_id).stringByReplacingOccurrencesOfString("||COURSEID||", withString: self.course_id).stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!).validate().responseString
+            Alamofire.request(bbsUrl.replacingOccurrences(of: "||BBSID||", with: self.bbs_id).replacingOccurrences(of: "||COURSEID||", with: self.course_id).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!).validate().responseString
                 {
                     response in
                     do {
                         // if encoding is omitted, it defaults to NSUTF8StringEncoding
-                        let doc = try HTMLDocument(string: String(response), encoding: NSUTF8StringEncoding)
+                        let doc = try HTMLDocument(string: String(describing: response), encoding: String.Encoding.utf8)
                         var result = ""
                         for i in doc.xpath("//*[@id=\"table_box\"]/tr[2]/td[2]") {
                             result += i.rawXML
                         }
                         
-                        let str = try NSAttributedString(data: result.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+                        let str = try NSAttributedString(data: result.data(using: String.Encoding.unicode, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
                         let str1 = NSMutableAttributedString(attributedString: str)
                         str1.addAttributes([NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 16)!], range: NSMakeRange(0, str.length))
                         
@@ -1040,7 +1040,7 @@ class BBSDetailViewController: FormViewController {
             
             
         }
-        let rect = CGRectMake(0, 0, 0, 0.1)
+        let rect = CGRect(x: 0, y: 0, width: 0, height: 0.1)
         self.tableView?.tableHeaderView = UIView(frame: rect)
         self.tableView?.tableFooterView = UIView(frame: rect)
         
@@ -1074,10 +1074,10 @@ class HWKDetailViewController: FormViewController {
             
             <<< TextAreaRow() {
                 $0.value = self.hwk_title
-                $0.textAreaHeight = .Dynamic(initialTextViewHeight: 24)
+                $0.textAreaHeight = .dynamic(initialTextViewHeight: 24)
                 }.cellUpdate({ (cell, row) -> () in
                     cell.textView.font = UIFont(name: "HelveticaNeue", size: 16)
-                    cell.textView.editable = false
+                    cell.textView.isEditable = false
                 })
             
             <<< LabelRow() {
@@ -1092,18 +1092,18 @@ class HWKDetailViewController: FormViewController {
         }
         
         if course_id != nil && hwk_id != nil {
-            Alamofire.request(.GET, hwkUrl.stringByReplacingOccurrencesOfString("||HWKID||", withString: self.hwk_id).stringByReplacingOccurrencesOfString("||COURSEID||", withString: self.course_id).stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!).validate().responseString
+            Alamofire.request(hwkUrl.replacingOccurrences(of: "||HWKID||", with: self.hwk_id).replacingOccurrences(of: "||COURSEID||", with: self.course_id).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!).validate().responseString
                 {
                     response in
                     do {
                         // if encoding is omitted, it defaults to NSUTF8StringEncoding
-                        let doc = try HTMLDocument(string: String(response), encoding: NSUTF8StringEncoding)
+                        let doc = try HTMLDocument(string: String(describing: response), encoding: String.Encoding.utf8)
                         var result = ""
                         for i in doc.xpath("//*[@id=\"table_box\"]/tr[2]/td[2]/textarea") {
                             result += i.rawXML
                         }
                         
-                        let str = try NSAttributedString(data: result.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+                        let str = try NSAttributedString(data: result.data(using: String.Encoding.unicode, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
                         let str1 = NSMutableAttributedString(attributedString: str)
                         str1.addAttributes([NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 16)!], range: NSMakeRange(0, str.length))
                         
@@ -1118,7 +1118,7 @@ class HWKDetailViewController: FormViewController {
                         
                         for i in doc.xpath("//*[@id=\"table_box\"]/tr[3]/td[2]/a") {
                             
-                            let str = try NSAttributedString(data: i.rawXML.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+                            let str = try NSAttributedString(data: i.rawXML.data(using: String.Encoding.unicode, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
                             let str1 = NSMutableAttributedString(attributedString: str)
                             str1.addAttributes([NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 16)!], range: NSMakeRange(0, str.length))
 //                            
@@ -1145,7 +1145,7 @@ class HWKDetailViewController: FormViewController {
             
             
         }
-        let rect = CGRectMake(0, 0, 0, 0.1)
+        let rect = CGRect(x: 0, y: 0, width: 0, height: 0.1)
         self.tableView?.tableHeaderView = UIView(frame: rect)
         self.tableView?.tableFooterView = UIView(frame: rect)
         

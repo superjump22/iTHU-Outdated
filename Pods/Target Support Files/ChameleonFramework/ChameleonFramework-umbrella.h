@@ -7,6 +7,7 @@
 #import "Chameleon_.h"
 #import "NSArray+Chameleon.h"
 #import "UIAppearance+Swift.h"
+#import "UIApplication+CHSharedApplication.h"
 #import "UIButton+Chameleon.h"
 #import "UIColor+Chameleon.h"
 #import "UIColor+ChameleonPrivate.h"
