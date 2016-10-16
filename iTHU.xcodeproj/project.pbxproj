@@ -10,6 +10,14 @@
 		6EE2B8ADBA241DCE8B32BFA5 /* Pods_iTHU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA720B2A08915248134DD3A /* Pods_iTHU.framework */; };
 		A322C5FD1D506E040096EA50 /* BBSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A322C5FC1D506E040096EA50 /* BBSCell.xib */; };
 		A322C5FF1D524CBB0096EA50 /* HWKCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A322C5FE1D524CBB0096EA50 /* HWKCell.xib */; };
+		A3273DD71DB41446002BDBC7 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A3273DCB1DB41446002BDBC7 /* JTSAnimatedGIFUtility.m */; };
+		A3273DD81DB41446002BDBC7 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A3273DCD1DB41446002BDBC7 /* JTSImageInfo.m */; };
+		A3273DD91DB41446002BDBC7 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3273DCF1DB41446002BDBC7 /* JTSImageViewController.m */; };
+		A3273DDA1DB41446002BDBC7 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A3273DD11DB41446002BDBC7 /* JTSSimpleImageDownloader.m */; };
+		A3273DDB1DB41446002BDBC7 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3273DD21DB41446002BDBC7 /* TimelineView.swift */; };
+		A3273DDC1DB41446002BDBC7 /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3273DD41DB41446002BDBC7 /* UIApplication+JTSImageViewController.m */; };
+		A3273DDD1DB41446002BDBC7 /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = A3273DD61DB41446002BDBC7 /* UIImage+JTSImageEffects.m */; };
+		A3273DDF1DB4146B002BDBC7 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3273DDE1DB4146B002BDBC7 /* TimelineViewController.swift */; };
 		A34BD6541D54560B00BC0167 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34BD6531D54560B00BC0167 /* InfoViewController.swift */; };
 		A34FFD981D530A1F00F04E37 /* FILECell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34FFD971D530A1F00F04E37 /* FILECell.xib */; };
 		A36C68D31D4DFC0D002F0E56 /* CourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A36C68D21D4DFC0D002F0E56 /* CourseCell.xib */; };
@@ -59,6 +67,20 @@
 		8DF72220059FA759A564C314 /* Pods-iTHU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTHU.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTHU/Pods-iTHU.release.xcconfig"; sourceTree = "<group>"; };
 		A322C5FC1D506E040096EA50 /* BBSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSCell.xib; sourceTree = "<group>"; };
 		A322C5FE1D524CBB0096EA50 /* HWKCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWKCell.xib; sourceTree = "<group>"; };
+		A3273DCA1DB41446002BDBC7 /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
+		A3273DCB1DB41446002BDBC7 /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
+		A3273DCC1DB41446002BDBC7 /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageInfo.h; sourceTree = "<group>"; };
+		A3273DCD1DB41446002BDBC7 /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageInfo.m; sourceTree = "<group>"; };
+		A3273DCE1DB41446002BDBC7 /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageViewController.h; sourceTree = "<group>"; };
+		A3273DCF1DB41446002BDBC7 /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageViewController.m; sourceTree = "<group>"; };
+		A3273DD01DB41446002BDBC7 /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSSimpleImageDownloader.h; sourceTree = "<group>"; };
+		A3273DD11DB41446002BDBC7 /* JTSSimpleImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSSimpleImageDownloader.m; sourceTree = "<group>"; };
+		A3273DD21DB41446002BDBC7 /* TimelineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		A3273DD31DB41446002BDBC7 /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+JTSImageViewController.h"; sourceTree = "<group>"; };
+		A3273DD41DB41446002BDBC7 /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
+		A3273DD51DB41446002BDBC7 /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
+		A3273DD61DB41446002BDBC7 /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
+		A3273DDE1DB4146B002BDBC7 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		A34BD6531D54560B00BC0167 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A34FFD971D530A1F00F04E37 /* FILECell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FILECell.xib; sourceTree = "<group>"; };
 		A36C68D21D4DFC0D002F0E56 /* CourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
@@ -137,6 +159,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A3273DC91DB41446002BDBC7 /* TimelineView */ = {
+			isa = PBXGroup;
+			children = (
+				A3273DD21DB41446002BDBC7 /* TimelineView.swift */,
+				A3273DCA1DB41446002BDBC7 /* JTSAnimatedGIFUtility.h */,
+				A3273DCB1DB41446002BDBC7 /* JTSAnimatedGIFUtility.m */,
+				A3273DCC1DB41446002BDBC7 /* JTSImageInfo.h */,
+				A3273DCD1DB41446002BDBC7 /* JTSImageInfo.m */,
+				A3273DCE1DB41446002BDBC7 /* JTSImageViewController.h */,
+				A3273DCF1DB41446002BDBC7 /* JTSImageViewController.m */,
+				A3273DD01DB41446002BDBC7 /* JTSSimpleImageDownloader.h */,
+				A3273DD11DB41446002BDBC7 /* JTSSimpleImageDownloader.m */,
+				A3273DD31DB41446002BDBC7 /* UIApplication+JTSImageViewController.h */,
+				A3273DD41DB41446002BDBC7 /* UIApplication+JTSImageViewController.m */,
+				A3273DD51DB41446002BDBC7 /* UIImage+JTSImageEffects.h */,
+				A3273DD61DB41446002BDBC7 /* UIImage+JTSImageEffects.m */,
+			);
+			path = TimelineView;
+			sourceTree = "<group>";
+		};
 		A36C68D61D4E5A67002F0E56 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +248,7 @@
 		A3CE657E1D4BAACF0083D692 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A3273DDE1DB4146B002BDBC7 /* TimelineViewController.swift */,
 				A3DB50A21D4C9BEC0005C243 /* LaunchViewController.swift */,
 				A3CE65831D4BB7530083D692 /* RootViewController.swift */,
 				A38706721D4BA16F00A323C2 /* LearnViewController.swift */,
@@ -232,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				A3CE65B41D4BDB9F0083D692 /* iTHU-Bridging-Header.h */,
+				A3273DC91DB41446002BDBC7 /* TimelineView */,
 				A3DB50A91D4CDBE40005C243 /* TKSubmitTransition */,
 				A3CE65901D4BC2030083D692 /* SwipeViewController */,
 			);
@@ -470,16 +514,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3DB50B31D4CDBE40005C243 /* TransitionSubmitButton.swift in Sources */,
+				A3273DDF1DB4146B002BDBC7 /* TimelineViewController.swift in Sources */,
 				A3CE65941D4BC2030083D692 /* InterfaceController.swift in Sources */,
+				A3273DD71DB41446002BDBC7 /* JTSAnimatedGIFUtility.m in Sources */,
 				A3DB509C1D4C84E40005C243 /* Course.swift in Sources */,
 				A3CE65951D4BC2030083D692 /* SwipeViewController.swift in Sources */,
+				A3273DD91DB41446002BDBC7 /* JTSImageViewController.m in Sources */,
 				A3DB509E1D4C855C0005C243 /* User.swift in Sources */,
 				A3DB50AF1D4CDBE40005C243 /* CGRectEx.swift in Sources */,
+				A3273DDD1DB41446002BDBC7 /* UIImage+JTSImageEffects.m in Sources */,
 				A3CE65841D4BB7530083D692 /* RootViewController.swift in Sources */,
 				A3DB50B11D4CDBE40005C243 /* NSTimerEx.swift in Sources */,
+				A3273DD81DB41446002BDBC7 /* JTSImageInfo.m in Sources */,
 				A3DB50B01D4CDBE40005C243 /* FadeTransition.swift in Sources */,
 				A38706711D4BA16F00A323C2 /* AppDelegate.swift in Sources */,
+				A3273DDC1DB41446002BDBC7 /* UIApplication+JTSImageViewController.m in Sources */,
+				A3273DDB1DB41446002BDBC7 /* TimelineView.swift in Sources */,
 				A34BD6541D54560B00BC0167 /* InfoViewController.swift in Sources */,
+				A3273DDA1DB41446002BDBC7 /* JTSSimpleImageDownloader.m in Sources */,
 				A3DB50A31D4C9BEC0005C243 /* LaunchViewController.swift in Sources */,
 				A3DB50B21D4CDBE40005C243 /* SpinerLayer.swift in Sources */,
 				A38706731D4BA16F00A323C2 /* LearnViewController.swift in Sources */,
