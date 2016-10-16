@@ -52,6 +52,7 @@ class LearnViewController: SwipeViewController {
         page_three.title = "全部"
         
         setViewControllerArray([page_one, page_two, page_three])
+//        setFirstViewController(1)
         setFirstViewController(0)
         setSelectionBar(40, height: 2, color: UIColor(red: 0.23, green: 0.55, blue: 0.92, alpha: 1.0))
         setButtonsWithSelectedColor(UIFont(name: "HelveticaNeue-Light", size: 16)!, color: UIColor.darkGrayColor(), selectedColor: UIColor.blackColor())
@@ -312,6 +313,7 @@ extension CourseTableViewController
         if useful[indexPath.section][indexPath.row] {
             let vc = stb.instantiateViewControllerWithIdentifier("CourseDetailViewController") as! CourseDetailViewController
             vc.title = "\(cell.nameLabel.text!)"
+            vc.navigationItem.backBarButtonItem?.title = "返回"
             vc.course = courseLists[indexPath.section].list[indexPath.row]
             
             self.navigationController?.pushViewController(vc, animated: true)

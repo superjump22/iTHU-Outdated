@@ -18,9 +18,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="naq-8b-CLu" kind="relationship" relationship="viewControllers" id="Bhx-pt-XRE"/>
-                        <segue destination="ZWg-tV-5wS" kind="relationship" relationship="viewControllers" id="Tix-UB-eS8"/>
-                        <segue destination="Goo-Q9-1td" kind="relationship" relationship="viewControllers" id="mn3-bc-kfD"/>
-                        <segue destination="MVg-GK-Zxi" kind="relationship" relationship="viewControllers" id="d5c-pA-kXY"/>
+                        <segue destination="OAe-BU-zis" kind="relationship" relationship="viewControllers" id="5sW-zh-haD"/>
+                        <segue destination="Goo-Q9-1td" kind="relationship" relationship="viewControllers" id="L8u-dE-aTb"/>
+                        <segue destination="MVg-GK-Zxi" kind="relationship" relationship="viewControllers" id="Fmv-Gc-m0f"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -32,9 +32,10 @@
             <objects>
                 <navigationController id="naq-8b-CLu" customClass="LearnViewController" customModule="iTHU" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="学堂" image="School_26" id="bp6-Iq-FTO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dzU-Vr-aXD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dzU-Vr-aXD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="MW3-db-c9v" kind="relationship" relationship="rootViewController" id="m6X-OE-c0f"/>
@@ -54,7 +55,7 @@
             </objects>
             <point key="canvasLocation" x="-3346" y="2311"/>
         </scene>
-        <!--事项-->
+        <!--时间线-->
         <scene sceneID="9AM-mq-6dY">
             <objects>
                 <viewController id="ZWg-tV-5wS" customClass="TimelineViewController" customModule="iTHU" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,19 +72,20 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Tk6-8w-YgY" secondAttribute="trailing" id="2iX-RY-vtN"/>
-                            <constraint firstItem="Tk6-8w-YgY" firstAttribute="top" secondItem="vG3-mc-AGB" secondAttribute="top" constant="20" id="FXh-ub-vVX"/>
+                            <constraint firstItem="Tk6-8w-YgY" firstAttribute="top" secondItem="vG3-mc-AGB" secondAttribute="top" id="8Cv-2h-TYA"/>
                             <constraint firstAttribute="bottom" secondItem="Tk6-8w-YgY" secondAttribute="bottom" id="NkX-1v-0N8"/>
                             <constraint firstItem="Tk6-8w-YgY" firstAttribute="leading" secondItem="vG3-mc-AGB" secondAttribute="leading" id="rgc-2D-Hra"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="事项" image="Report Card_26" id="MNT-mf-xWK"/>
+                    <navigationItem key="navigationItem" title="时间线" id="K2s-fR-1l8"/>
                     <connections>
                         <outlet property="scrollView" destination="Tk6-8w-YgY" id="NPs-ei-o7O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgs-5F-W6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2560" y="1575"/>
+            <point key="canvasLocation" x="-2348" y="2309.5952023988007"/>
         </scene>
         <!--更多-->
         <scene sceneID="iPs-ze-ZSf">
@@ -103,6 +105,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2MV-bk-VAQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-522" y="1575"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="nzC-5x-zJu">
+            <objects>
+                <navigationController id="OAe-BU-zis" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="wer-D8-BKx"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gkF-nA-tAK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZWg-tV-5wS" kind="relationship" relationship="rootViewController" id="tf7-dA-Um4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xnv-h7-Cwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2486" y="1526"/>
         </scene>
         <!--发现-->
         <scene sceneID="mwi-ZW-q3m">
@@ -261,11 +281,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a3.png" translatesAutoresizingMaskIntoConstraints="NO" id="i3T-IM-oi7"/>
-                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RkB-tB-777">
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RkB-tB-777">
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iTsinghua" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="4gN-h9-Pal">
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="48"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All rights reserved" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BxQ-dA-B1n">
@@ -282,8 +302,8 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="363-VH-QnN" firstAttribute="centerX" secondItem="RkB-tB-777" secondAttribute="centerX" id="3eE-ab-ccp"/>
-                                    <constraint firstItem="BxQ-dA-B1n" firstAttribute="top" secondItem="363-VH-QnN" secondAttribute="bottom" constant="5" id="FaI-yO-BIN"/>
-                                    <constraint firstItem="363-VH-QnN" firstAttribute="top" secondItem="4gN-h9-Pal" secondAttribute="bottom" constant="10" id="Mk8-r0-HlX"/>
+                                    <constraint firstItem="BxQ-dA-B1n" firstAttribute="top" secondItem="363-VH-QnN" secondAttribute="bottom" constant="8" id="FaI-yO-BIN"/>
+                                    <constraint firstItem="363-VH-QnN" firstAttribute="top" secondItem="4gN-h9-Pal" secondAttribute="bottom" constant="12" id="Mk8-r0-HlX"/>
                                     <constraint firstItem="4gN-h9-Pal" firstAttribute="centerY" secondItem="RkB-tB-777" secondAttribute="centerY" constant="-40" id="fwT-H0-jS1"/>
                                     <constraint firstItem="BxQ-dA-B1n" firstAttribute="centerX" secondItem="RkB-tB-777" secondAttribute="centerX" id="kYK-LS-CX6"/>
                                     <constraint firstItem="4gN-h9-Pal" firstAttribute="centerX" secondItem="RkB-tB-777" secondAttribute="centerX" id="uUY-j4-yMW"/>

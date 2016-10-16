@@ -84,6 +84,7 @@ public class SwipeViewController: UINavigationController, UIPageViewControllerDe
         guard currentPageIndex >= 1 else {return}
         let initialViewController = pageArray[currentPageIndex - 1]
         pageController.setViewControllers([initialViewController], direction: .Forward, animated: true, completion: nil)
+        view.backgroundColor = pageArray[currentPageIndex - 1].view.backgroundColor
         
     }
     
@@ -158,7 +159,9 @@ public class SwipeViewController: UINavigationController, UIPageViewControllerDe
         let border = viewWidth - 1
         
         
-        guard currentPageIndex > 0 && currentPageIndex <= buttons.count else {return}
+        guard currentPageIndex > 0 && currentPageIndex <= buttons.count else {
+            return
+        }
         
         //Ensuring currentPageIndex is not changed twice
         if -border ... border ~= xFromCenter {
