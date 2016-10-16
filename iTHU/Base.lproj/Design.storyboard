@@ -21,7 +21,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnQ-Pt-qlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476" y="921"/>
+            <point key="canvasLocation" x="1463" y="744"/>
         </scene>
         <!--Course Detail View Controller-->
         <scene sceneID="uhv-UW-eTJ">
