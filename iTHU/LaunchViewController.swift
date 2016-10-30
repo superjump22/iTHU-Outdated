@@ -253,12 +253,12 @@ class LaunchViewController: UIViewController, CAAnimationDelegate
         animation.fillMode = kCAFillModeForwards;
         animation.fromValue = NSValue(CGSize: self.imageView.frame.size)
         animation.toValue = NSValue(CGSize: CGSizeMake(2.0*self.imageView.frame.size.width, 2.0*self.imageView.frame.size.height))
-        animation.duration = 16.0
+        animation.duration = 12.0
         self.imageView.layer.addAnimation(animation, forKey: "Image-expend")
         
         if firstFlag {
 
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(2.4, target:self, selector: #selector(LaunchViewController.timer(_:)), userInfo:["type":"login"], repeats:false)
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.8, target:self, selector: #selector(LaunchViewController.timer(_:)), userInfo:["type":"login"], repeats:false)
         
         }
     
