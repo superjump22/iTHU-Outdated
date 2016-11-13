@@ -89,13 +89,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         
         // debug
-        let realm = try! Realm(configuration: configDefault)
-        let users = realm.objects(User)
-        let loginUsers = users.filter("login == true")
-        try! realm.write
-            {
-                loginUsers.setValue(false, forKey: "login")
-        }
+//        let realm = try! Realm(configuration: configDefault)
+//        let users = realm.objects(User)
+//        let loginUsers = users.filter("login == true")
+//        try! realm.write
+//            {
+//                loginUsers.setValue(false, forKey: "login")
+//        }
         //debug
     }
 

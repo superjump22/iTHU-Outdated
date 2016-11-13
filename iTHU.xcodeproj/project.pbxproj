@@ -701,10 +701,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = W38SF653L6;
 				INFOPLIST_FILE = iTHU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTsinghua;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.guo-c14.iTsinghua";
 				PRODUCT_NAME = iTHU;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iTHU/Lib/iTHU-Bridging-Header.h";
@@ -722,10 +723,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = W38SF653L6;
 				INFOPLIST_FILE = iTHU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tsinghua.gc.iTsinghua;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.guo-c14.iTsinghua";
 				PRODUCT_NAME = iTHU;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iTHU/Lib/iTHU-Bridging-Header.h";

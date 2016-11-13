@@ -182,6 +182,10 @@ class LaunchViewController: UIViewController, CAAnimationDelegate
     var set: Set<String> = []
     var timer: NSTimer!
     let sb = UIStoryboard(name: "Main", bundle:nil)
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 
     override func viewDidLoad()
     {
@@ -195,7 +199,7 @@ class LaunchViewController: UIViewController, CAAnimationDelegate
                 request(id, pass: pass,
                     block: {
                         if (flag) {
-                            self.timer = NSTimer.scheduledTimerWithTimeInterval(2.4, target:self, selector: #selector(LaunchViewController.timer(_:)), userInfo:["type":"root"], repeats:false)
+                            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target:self, selector: #selector(LaunchViewController.timer(_:)), userInfo:["type":"root"], repeats:false)
                         } else {
                             let vc = self.sb.instantiateViewControllerWithIdentifier("login") as! LoginViewController
                             self.presentViewController(vc, animated: true, completion: { ()->() in
@@ -240,10 +244,6 @@ class LaunchViewController: UIViewController, CAAnimationDelegate
         }
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
-    }
-    
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
@@ -258,7 +258,7 @@ class LaunchViewController: UIViewController, CAAnimationDelegate
         
         if firstFlag {
 
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.8, target:self, selector: #selector(LaunchViewController.timer(_:)), userInfo:["type":"login"], repeats:false)
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target:self, selector: #selector(LaunchViewController.timer(_:)), userInfo:["type":"login"], repeats:false)
         
         }
     
