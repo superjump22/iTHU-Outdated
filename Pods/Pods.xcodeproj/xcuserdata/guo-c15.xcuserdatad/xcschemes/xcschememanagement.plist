@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>EasyTipView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Eureka.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,7 +24,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iTHU.xcscheme</key>
+		<key>Pods-iTsinghua.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -44,7 +39,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TextFieldEffects.xcscheme</key>
+		<key>SwiftMessages-SwiftMessages.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftMessages.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,22 +52,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>25B1433D504DD68E32FFE109F08F0E67</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3E19FB5CFCB8600C109A178F9D1E75A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3EE2CB75FC61370AE7FBEEA494AC8BE3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>40B404EF16E8EA237FA06DC708D0D2D5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4332352E97A37C729DC7D9B3B8A4BB15</key>
+		<key>4BD465442175B5274BD3B69984633C46</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,22 +72,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5579BAD702E8654A6336C8C983581E71</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>739DCFAE8F8191DD5F79882B19A1F422</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D71791D8F0306500CF3066DF3BEF8C7</key>
+		<key>873B1A0D84F1FF2C0ECD8A2440705B43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8D8E1EA61F9897E7B5782A825DC32756</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AE7122C225D5E938EB08EC8EA68EDC34</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DFC466ABEEF47DC1ABDFAC9CF6BCABB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

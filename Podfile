@@ -4,20 +4,19 @@ platform :ios, '9.0'
 
 use_frameworks!
 
-target "iTHU" do
-    pod 'ChameleonFramework/Swift'
-    pod 'Alamofire', '3.5.1'
-    pod 'RealmSwift', '2.0.2'
-    pod 'Eureka', '1.7.0'
-    pod 'Fuzi', '0.4.0'
-    pod 'TextFieldEffects', '1.2.0'
-    pod 'EasyTipView', '1.0.1'
+target "iTsinghua" do
+    pod 'Alamofire', '~> 4.0.1'
+    pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+    pod 'RealmSwift', '~> 2.0.3'
+    pod 'SwiftMessages', '~> 3.0.3'
+    pod 'Eureka', '~> 2.0.0-beta.1'
+    pod 'Fuzi', '~> 1.0.1'
 end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '2.3'
+      config.build_settings['SWIFT_VERSION'] = '3.0'
     end
   end
 end
